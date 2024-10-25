@@ -1,4 +1,7 @@
-﻿namespace EngHotel
+﻿using EngHotel.Pages.Shared;
+using EngHotel.Constants;
+
+namespace EngHotel
 {
     public partial class App : Application
     {
@@ -6,7 +9,9 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(ApiConstants.syncFusionLicence);
+
+            MainPage = new LoginPage();
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Controls.UserDialogs.Maui;
+using Microsoft.Extensions.Logging;
+using Mopups.Hosting;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace EngHotel
 {
@@ -9,6 +13,10 @@ namespace EngHotel
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .UseUserDialogs()
+                .ConfigureMopups()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

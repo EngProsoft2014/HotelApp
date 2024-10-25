@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.OnBordingPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="OnBordingPage">
+    <StackLayout Margin="0">
+        <Image Source="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg?w=740"
+               HorizontalOptions="FillAndExpand" HeightRequest="250"></Image>
+        <Border StrokeShape="RoundRectangle 30" BackgroundColor="{StaticResource 1stButtonColor}" VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand" Padding="15" Margin="0,40,0,0">
+            <StackLayout Orientation="Vertical" Spacing="10" Margin="0,30,0,0">
+                <Label Text="Moments Hotel Services App" TextColor="{StaticResource 2ndTextColor}" FontSize="22" FontAttributes="Bold" 
+                       WidthRequest="200" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
+                <Label Text="Providing you with the best service to enjoy a special stay" TextColor="{StaticResource 2ndTextColor}"
+                       FontSize="12"></Label>
+                <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="EndAndExpand">
+                    <Button Text="Login" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource 2ndButtonColor}" CornerRadius="0"
+                            TextColor="{StaticResource 1stTextColor}" FontSize="16" FontAttributes="Bold"></Button>
+                </Border>
+                <Border StrokeShape="RoundRectangle 0,20,20,0">
+                    <Button Text="Continue as Guest" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource 2ndButtonColor}" CornerRadius="0"
+                            TextColor="{StaticResource 1stTextColor}" FontSize="16" FontAttributes="Bold"></Button>
+                </Border>
+            </StackLayout>
+        </Border>
+    </StackLayout>
+</Controls:CustomControl>

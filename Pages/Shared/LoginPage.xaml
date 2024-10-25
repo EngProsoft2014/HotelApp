@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.LoginPage"
+             Title="LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <StackLayout Orientation="Vertical" Margin="20" Spacing="10">
+        <Label Text="Welcome Back" TextColor="{StaticResource 1stTextColor}" FontSize="22" FontAttributes="Bold" 
+               HorizontalOptions="Center" Margin="0,120,0,100"></Label>
+        <VerticalStackLayout Spacing="10">
+            <Border StrokeShape="RoundRectangle 20">
+                <Entry Placeholder="User Name" PlaceholderColor="{StaticResource 1stTextColor}" TextColor="{StaticResource 1stTextColor}"></Entry>
+            </Border>
+            <Border StrokeShape="RoundRectangle 20">
+                <Grid>
+                    <Entry Placeholder="Password" PlaceholderColor="{StaticResource 1stTextColor}" TextColor="{StaticResource 1stTextColor}"></Entry>
+                </Grid>
+            </Border>
+            <Label Text="Forget Password?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
+            <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
+                <Button Text="Login" BackgroundColor="{StaticResource 1stButtonColor}" CornerRadius="0" TextColor="{StaticResource 2ndTextColor}"
+            FontSize="16" FontAttributes="Bold"></Button>
+            </Border>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">
+            <Label Text="Don't Have an Account?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
+            <Label Text="Sign Up" FontSize="12" TextColor="{StaticResource 1stTextColor}"></Label>
+        </HorizontalStackLayout>
+        
+    </StackLayout>
+</Controls:CustomControl>
