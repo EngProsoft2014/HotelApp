@@ -5,28 +5,59 @@
              x:Class="EngHotel.Pages.Shared.LoginPage"
              Title="LoginPage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource PageBackgroundColor}">
     <StackLayout Orientation="Vertical" Margin="20" Spacing="10">
-        <Label Text="Welcome Back" TextColor="{StaticResource 1stTextColor}" FontSize="22" FontAttributes="Bold" 
+        <Image HorizontalOptions="StartAndExpand">
+            <Image.Source>
+                <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+            </Image.Source>
+            <Image.Triggers>
+                <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                    <Setter Property="Rotation" Value="180"></Setter>
+                </DataTrigger>
+            </Image.Triggers>
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Welcome Back" TextColor="{StaticResource TextColorDark}" FontSize="22" FontAttributes="Bold" 
                HorizontalOptions="Center" Margin="0,120,0,100"></Label>
         <VerticalStackLayout Spacing="10">
             <Border StrokeShape="RoundRectangle 20">
-                <Entry Placeholder="User Name" PlaceholderColor="{StaticResource 1stTextColor}" TextColor="{StaticResource 1stTextColor}"></Entry>
+                <Entry x:Name="entryEmail" Placeholder="User Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
             </Border>
             <Border StrokeShape="RoundRectangle 20">
-                <Grid>
-                    <Entry Placeholder="Password" PlaceholderColor="{StaticResource 1stTextColor}" TextColor="{StaticResource 1stTextColor}"></Entry>
-                </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
+                    <Entry x:Name="entryPassword" Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}"
+                           IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
+                    <Image x:Name="imgEyePass" Margin="0,0,10,0" HorizontalOptions="EndAndExpand">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <DataTrigger TargetType="Image" Binding="{Binding Source={x:Reference entryPassword},Path=IsPassword}" Value="False">
+                                <Setter Property="Source">
+                                    <Setter.Value>
+                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Image.Triggers>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
             </Border>
             <Label Text="Forget Password?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
             <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
-                <Button Text="Login" BackgroundColor="{StaticResource 1stButtonColor}" CornerRadius="0" TextColor="{StaticResource 2ndTextColor}"
-            FontSize="16" FontAttributes="Bold"></Button>
+                <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource 2ndTextColor}"
+                        FontSize="16" FontAttributes="Bold"></Button>
             </Border>
         </VerticalStackLayout>
         <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">
             <Label Text="Don't Have an Account?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
-            <Label Text="Sign Up" FontSize="12" TextColor="{StaticResource 1stTextColor}"></Label>
+            <Label Text="Sign Up" FontSize="12" TextColor="{StaticResource TextColorDark}"></Label>
         </HorizontalStackLayout>
         
     </StackLayout>

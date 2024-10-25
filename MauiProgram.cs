@@ -21,6 +21,11 @@ namespace EngHotel
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Font Awesome 6 Brands-Regular-400.otf", "FontIconBrand");
+                    fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontIcon");
+                    fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontIconSolid");
+                    fonts.AddFont("ElMessiri-Regular.ttf", "ElMessiri-Regular");
+                    fonts.AddFont("ElMessiri-Bold.ttf", "ElMessiri-Bold");
                 });
 
 #if DEBUG

@@ -11,7 +11,7 @@ namespace EngHotel
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(ApiConstants.syncFusionLicence);
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new OnBordingPage());
         }
     }
 }
