@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using EngHotel.Pages.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,24 @@ namespace EngHotel.ViewModels.Shared
         async Task BackCLick()
         {
             await App.Current!.MainPage!.Navigation.PopAsync();
+        }
+
+        [RelayCommand]
+        async Task SignUpClick()
+        {
+            var vm = new SignUpViewModel();
+            var page = new SignUpPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
+        [RelayCommand]
+        async Task ForgetPasswordClick()
+        {
+            var vm = new ResetViewModel();
+            var page = new ResetPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
     }
 }

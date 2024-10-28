@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.ResetPage"
+             Title="ResetPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Orientation="Vertical" Margin="20" Spacing="10">
+        <Image HorizontalOptions="StartAndExpand">
+            <Image.Source>
+                <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+            </Image.Source>
+            <Image.Triggers>
+                <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                    <Setter Property="Rotation" Value="180"></Setter>
+                </DataTrigger>
+            </Image.Triggers>
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Image Source="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg?w=740"
+               HorizontalOptions="FillAndExpand" HeightRequest="200" Margin="0,50,0,0"></Image>
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" Margin="0,70,0,0">
+                    <Entry x:Name="entryEmail" Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                </Border>
+                <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
+                    <Button Text="Send Message" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+            FontSize="16" FontAttributes="Bold" Command="{Binding SendMessageClickCommand}"></Button>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+</ContentPage>

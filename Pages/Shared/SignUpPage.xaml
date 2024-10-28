@@ -2,12 +2,12 @@
 <Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
-             x:Class="EngHotel.Pages.Shared.LoginPage"
-             Title="LoginPage"
+             x:Class="EngHotel.Pages.Shared.SignUpPage"
+             Title="SignUpPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
-    <StackLayout Orientation="Vertical" Margin="20" Spacing="10">
-        <Image HorizontalOptions="StartAndExpand">
+    <StackLayout Orientation="Vertical" Margin="20" Spacing="15">
+        <Image HorizontalOptions="StartAndExpand" Margin="0,0,0,30">
             <Image.Source>
                 <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
             </Image.Source>
@@ -21,17 +21,27 @@
             </Image.GestureRecognizers>
         </Image>
         <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout Orientation="Vertical">
-                <Label Text="Welcome Back" TextColor="{StaticResource TextColorDark}" FontSize="22" FontAttributes="Bold" 
-               HorizontalOptions="Center" Margin="0,120,0,100"></Label>
-                <VerticalStackLayout Spacing="10">
+            <StackLayout>
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Spacing="15">
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry x:Name="entryEmail" Placeholder="User Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="First Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+                        <Entry Placeholder="Last Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+                        <Entry Placeholder="Phone" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+                        <Entry Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+                        <Entry Placeholder="Country" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
                             <Entry x:Name="entryPassword" Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}"
-                           IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
+               IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
                             <Image x:Name="imgEyePass" Margin="0,0,10,0" HorizontalOptions="EndAndExpand">
                                 <Image.Source>
                                     <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
@@ -51,26 +61,21 @@
                             </Image>
                         </StackLayout>
                     </Border>
-                    <Label Text="Forget Password?" FontSize="12" TextColor="{StaticResource placeHolderColor}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ForgetPasswordClickCommand}"></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
-                        <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-                        FontSize="16" FontAttributes="Bold"></Button>
-                    </Border>
                 </VerticalStackLayout>
-                <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Don't Have an Account?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
-                    <Label Text="Sign Up" FontSize="12" TextColor="{StaticResource TextColorDark}">
+                <!--button-->
+                <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="EndAndExpand">
+                    <Button Text="Sign Up" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+                    FontSize="16" FontAttributes="Bold"></Button>
+                </Border>
+                <HorizontalStackLayout Spacing="3" Margin="0,30,0,5" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Are You have account?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
+                    <Label Text="Login" FontSize="12" TextColor="{StaticResource TextColorDark}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SignUpClickCommand}"></TapGestureRecognizer>
+                            <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
                 </HorizontalStackLayout>
             </StackLayout>
         </ScrollView>
-
     </StackLayout>
 </Controls:CustomControl>

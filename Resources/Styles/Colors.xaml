@@ -8,19 +8,19 @@
     <!-- The Main Colors For Apllcation -->
 
     <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
-    <Color x:Key="ButtonBackgroundColorDark">#000000</Color>
+    <Color x:Key="ButtonBackgroundColorDark">#169CB4</Color>
     <Color x:Key="ButtonBackgroundColorLighet">#FFFFFF</Color>
     <Color x:Key="TextColorDark">#000000</Color>
     <Color x:Key="TextColorLighet">#FFFFFF</Color>
     <Color x:Key="ButtonBackgroundTranspernt">#00FFFFFF</Color>
-    <Color x:Key="BorderStokeColorDark">#000000</Color>
-    <Color x:Key="BorderBackgroundColorDark">#000000</Color>
+    <Color x:Key="BorderStokeColorDark">#169CB4</Color>
+    <Color x:Key="BorderBackgroundColorDark">#169CB4</Color>
     <Color x:Key="IconColorDark">#000000</Color>
     <Color x:Key="PendingColor">#0714FC</Color>
     <Color x:Key="ProcessingColor">#FCA607</Color>
     <Color x:Key="CompletedColor">#23E811</Color>
     <Color x:Key="BorderStrokeCancleColor">#FF0B0B</Color>
-    <Color x:Key="TabBarSelectedItem">#20D9FA</Color>
+    <Color x:Key="TabBarSelectedItem">#169CB4</Color>
     <Color x:Key="placeHolderColor">#605959</Color>
 
 

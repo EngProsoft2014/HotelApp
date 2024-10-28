@@ -7,12 +7,9 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}"
              Title="OnBordingPage">
-    <Controls:CustomControl.BindingContext>
-        <vm:OnBordingViewModel></vm:OnBordingViewModel>
-    </Controls:CustomControl.BindingContext>
     <StackLayout Margin="0">
         <Image Source="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg?w=740"
-               HorizontalOptions="FillAndExpand" HeightRequest="250" Margin="0,50,0,0"></Image>
+               HorizontalOptions="FillAndExpand" HeightRequest="200" Margin="0,50,0,0"></Image>
         <Border StrokeShape="RoundRectangle 30" BackgroundColor="{StaticResource BorderBackgroundColorDark}" VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand" Padding="15" Margin="0,40,0,0">
             <StackLayout Orientation="Vertical" Spacing="10" Margin="0,30,0,0">
@@ -27,7 +24,7 @@
                 </Border>
                 <Border StrokeShape="RoundRectangle 0,20,20,0">
                     <Button Text="Continue as Guest" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ButtonBackgroundColorLighet}" CornerRadius="0"
-                            TextColor="{StaticResource TextColorDark}" FontSize="16" FontAttributes="Bold"></Button>
+                            TextColor="{StaticResource TextColorDark}" FontSize="16" FontAttributes="Bold" Command="{Binding LoginAsaGuestCLickCommand}"></Button>
                 </Border>
             </StackLayout>
         </Border>

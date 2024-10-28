@@ -19,5 +19,14 @@ namespace EngHotel.ViewModels.Shared
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
+
+        [RelayCommand]
+        async Task LoginAsaGuestCLick()
+        {
+            var vm = new LoginAsaGuestViewModel();
+            var page = new LoginAsAGuestPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
     }
 }

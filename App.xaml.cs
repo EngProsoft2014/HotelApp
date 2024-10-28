@@ -1,5 +1,6 @@
 ﻿using EngHotel.Pages.Shared;
 using EngHotel.Constants;
+using EngHotel.ViewModels.Shared;
 
 namespace EngHotel
 {
@@ -10,8 +11,12 @@ namespace EngHotel
             InitializeComponent();
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(ApiConstants.syncFusionLicence);
-
-            MainPage = new NavigationPage(new OnBordingPage());
+            var vm = new OnBordingViewModel();
+            var page = new OnBordingPage();
+            //var vm = new BookingViewModel();
+            //var page = new BookingPage();
+            page.BindingContext = vm;
+            MainPage = new NavigationPage(page);
         }
     }
 }
