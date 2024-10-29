@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             x:Class="EngHotel.Pages.Shared.HomePage"
+             Title="HomePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Orientation="Vertical" Margin="20">
+
+
+        <tabView:SfTabView TabBarPlacement="Bottom" FlowDirection="LeftToRight" VerticalOptions="EndAndExpand" SelectionChanged="SfTabView_SelectionChanged"
+                           IndicatorCornerRadius="20" IndicatorBackground="{StaticResource ButtonBackgroundColorDark}">
+            <tabView:SfTabView.Items>
+                <!--Home Page-->
+                <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
+                    <tabView:SfTabItem.ImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <ContentView>
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <VerticalStackLayout Spacing="15">
+                                    <Label Text="Home" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+                                    <!--Room Service & Bathroom Services-->
+                                    <StackLayout Orientation="Horizontal" Spacing="20" Margin="0,30,0,0">
+                                        <!--Room Service-->
+                                        <Border StrokeShape="RoundRectangle 25" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" Padding="5,40" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Room Service" FontSize="14" TextColor="{StaticResource TextColorLighet}" HorizontalTextAlignment="Center"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                        <!--Bathroom Services-->
+                                        <Border StrokeShape="RoundRectangle 25" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" Padding="5,40" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Bathroom Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                    </StackLayout>
+                                    <!--Housekeeping Services & Laundry Services-->
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <!--Housekeeping Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Housekeeping Services" FontSize="14" TextColor="{StaticResource TextColorLighet}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                        <!--Laundry Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Laundry Services" FontSize="14" TextColor="{StaticResource TextColorLighet}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                    </StackLayout>
+                                    <!--Maintenance Services & Luggage Services-->
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <!--Maintenance Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Maintenance Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                        <!--Luggage Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Luggage Services" FontSize="14" TextColor="{StaticResource TextColorLighet}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                    </StackLayout>
+                                    <!--Childcare Services & Dining  Services-->
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <!--Childcare Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Childcare Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                        <!--Dining  Services-->
+                                        <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="{StaticResource TextColorLighet}" Size="25"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="Dining Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
+                                            </StackLayout>
+                                        </Border>
+                                    </StackLayout>
+                                </VerticalStackLayout>
+                            </ScrollView>
+                        </ContentView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <!--Cart-->
+                <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
+                    <tabView:SfTabItem.ImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <ContentView x:Name="CartView">
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Cart" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+                                    <Label Text="Notes" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="End"></Label>
+                                </StackLayout>
+                                <CollectionView ItemsSource="{Binding Carts}" Margin="0,40,0,0">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15"></GridItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Name}" FontSize="14" TextColor="{StaticResource TextColorDark}"></Label>
+                                                <Label Text="{Binding ItemCount}" FontSize="14" TextColor="{StaticResource TextColorDark}" HorizontalOptions="EndAndExpand"></Label>
+                                                <Image Margin="30,0,0,0">
+                                                    <Image.Source>
+                                                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="16" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+
+                                </CollectionView>
+                                <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="20,0,20,30" VerticalOptions="EndAndExpand">
+                                    <Button Text="Check out" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+                                            FontSize="16" FontAttributes="Bold"  Command='{Binding LoginClickCommand}'></Button>
+                                </Border>
+                            </StackLayout>
+                        </ContentView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <!--History-->
+                <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
+                    <tabView:SfTabItem.ImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <ContentView x:Name="History">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="History" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+                                <CollectionView Margin="0,40,0,0" ItemsSource="{Binding History}">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15"></GridItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border StrokeShape="RoundRectangle 0,20,20,0">
+                                                <StackLayout Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                        <Label Text="Employee ID : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
+                                                        <Label Text="{Binding EmplyeeId}" FontSize="{Binding EmplyeeId}" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
+                                                        <Border StrokeShape="RoundRectangle 0,20,20,0" HorizontalOptions="EndAndExpand" WidthRequest="80" HeightRequest="30" VerticalOptions="StartAndExpand">
+                                                            <Label Text="{Binding Statues}" FontSize="12" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                                <Label.Triggers>
+                                                                    <DataTrigger TargetType="Label" Binding="{Binding Statues}" Value="Compleated">
+                                                                        <Setter Property="TextColor" Value="{StaticResource CompletedColor}"></Setter>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger TargetType="Label" Binding="{Binding Statues}" Value="Progress">
+                                                                        <Setter Property="TextColor" Value="{StaticResource ProcessingColor}"></Setter>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger TargetType="Label" Binding="{Binding Statues}" Value="Pending">
+                                                                        <Setter Property="TextColor" Value="{StaticResource PendingColor}"></Setter>
+                                                                    </DataTrigger>
+                                                                </Label.Triggers>
+                                                            </Label>
+                                                        </Border>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                        <HorizontalStackLayout>
+                                                            <Label Text="Date : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
+                                                            <Label Text="{Binding Date,StringFormat='{0:MM-dd-yyyy}'}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
+                                                        </HorizontalStackLayout>
+                                                        <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                                                            <Label Text="Tine : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
+                                                            <Label Text="{Binding Time,StringFormat='{0:hh:mm tt}'}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
+                                                        </HorizontalStackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Border>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+                            </StackLayout>
+                        </ContentView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <!--Account-->
+                <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
+                    <tabView:SfTabItem.ImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                    </tabView:SfTabItem.ImageSource>
+                </tabView:SfTabItem>
+            </tabView:SfTabView.Items>
+        </tabView:SfTabView>
+    </StackLayout>
+</Controls:CustomControl>
