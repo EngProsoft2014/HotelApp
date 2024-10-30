@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.CreateRequest.HousekeepingServicesPage"
+             Title="HousekeepingServicesPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Orientation="Vertical" Margin="20">
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,30">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Housekeeping Services" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="20">
+                <!--Cleaning Requests-->
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Cleaning Requests" FontSize="14" TextColor="Black">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference CleaningRequests},Path=IsVisible}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource ButtonBackgroundColorDark}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource FontFamily="FontIconSolid" Color="Black" Glyph="" Size="15"></FontImageSource>
+                            </Image.Source>
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image" Binding="{Binding Source={x:Reference CleaningRequests},Path=IsVisible}" Value="True">
+                                    <Setter Property="Source">
+                                        <Setter.Value>
+                                            <FontImageSource FontFamily="FontIconSolid" Color="{StaticResource ButtonBackgroundColorDark}" Glyph="" Size="15"></FontImageSource>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                                    <Setter Property="Rotation" Value="180"></Setter>
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_CleaningRequests"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <CollectionView x:Name="CleaningRequests" ItemsSource="{Binding RoomEssentials}" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <CheckBox IsChecked="{Binding IsSelectes}" Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                                        <Label Text="{Binding ServiceName}" TextColor="{StaticResource TextColorDark}" FontSize="13" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center"></Label>
+                                        <Image HorizontalOptions="EndAndExpand">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="" Size="20" FontFamily="FontIcon" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="0" TextColor="{StaticResource TextColorDark}" FontSize="14" Margin="15,0" VerticalTextAlignment="Center"></Label>
+                                        <Image>
+                                            <Image.Source>
+                                                <FontImageSource Glyph="" Size="20" FontFamily="FontIcon" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                    </StackLayout>
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Border StrokeShape="RoundRectangle 0,20,20,0" HorizontalOptions="FillAndExpand">
+                <Button Text="Add To Cart" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorDark}"
+                FontSize="16" FontAttributes="Bold"></Button>
+            </Border>
+            <Border StrokeShape="RoundRectangle 0,20,20,0" HorizontalOptions="FillAndExpand" Stroke="{StaticResource BorderStokeColorDark}" StrokeThickness="2">
+                <Button Text="Order Now" BackgroundColor="{StaticResource ButtonBackgroundTranspernt}" CornerRadius="0" TextColor="{StaticResource TextColorDark}"
+                FontSize="16" FontAttributes="Bold"></Button>
+            </Border>
+        </StackLayout>
+    </StackLayout>
+</Controls:CustomControl>

@@ -52,8 +52,8 @@
                         </StackLayout>
                     </Border>
                     <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
-                        <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource 2ndTextColor}"
-                    FontSize="16" FontAttributes="Bold"></Button>
+                        <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorDark}"
+                                FontSize="16" FontAttributes="Bold"></Button>
                     </Border>
                 </VerticalStackLayout>
                 <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">

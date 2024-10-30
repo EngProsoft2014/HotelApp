@@ -23,7 +23,7 @@
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical">
                 <Label Text="Welcome Back" TextColor="{StaticResource TextColorDark}" FontSize="22" FontAttributes="Bold" 
-               HorizontalOptions="Center" Margin="0,120,0,100"></Label>
+                       HorizontalOptions="Center" Margin="0,120,0,100"></Label>
                 <VerticalStackLayout Spacing="10">
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                         <Entry x:Name="entryEmail" Placeholder="User Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>

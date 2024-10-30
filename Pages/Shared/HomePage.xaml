@@ -35,6 +35,9 @@
                                                 </Image>
                                                 <Label Text="Room Service" FontSize="14" TextColor="{StaticResource TextColorLighet}" HorizontalTextAlignment="Center"></Label>
                                             </StackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding RoomServiceClickCommand}"></TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                         <!--Bathroom Services-->
                                         <Border StrokeShape="RoundRectangle 25" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" Padding="5,40" HorizontalOptions="FillAndExpand">
@@ -46,6 +49,9 @@
                                                 </Image>
                                                 <Label Text="Bathroom Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
                                             </StackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding BathroomServicesClickCommand}"></TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                     </StackLayout>
                                     <!--Housekeeping Services & Laundry Services-->
@@ -59,8 +65,11 @@
                                                     </Image.Source>
                                                 </Image>
                                                 <Label Text="Housekeeping Services" FontSize="14" TextColor="{StaticResource TextColorLighet}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                           HorizontalTextAlignment="Center"></Label>
+                                                       HorizontalTextAlignment="Center"></Label>
                                             </StackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding HousekeepingServicesClickCommand}"></TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                         <!--Laundry Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
@@ -72,6 +81,9 @@
                                                 </Image>
                                                 <Label Text="Laundry Services" FontSize="14" TextColor="{StaticResource TextColorLighet}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
                                             </StackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding LaundryServicesClickCommand}"></TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                     </StackLayout>
                                     <!--Maintenance Services & Luggage Services-->
@@ -86,6 +98,9 @@
                                                 </Image>
                                                 <Label Text="Maintenance Services" FontSize="14" TextColor="{StaticResource TextColorLighet}"></Label>
                                             </StackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding MaintenanceServicesClickCommand}"></TapGestureRecognizer>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                         <!--Luggage Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="FillAndExpand">
