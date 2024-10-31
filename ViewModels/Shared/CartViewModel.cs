@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using EngHotel.Models;
+using EngHotel.Pages.Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -61,6 +63,15 @@ namespace EngHotel.ViewModels.Shared
                 Name = "Dining  Services"
             });
 
+        }
+
+        [RelayCommand]
+        async Task NotesClick()
+        {
+            var vm = new NotesViewModel();
+            var page = new NotesPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
     }
 }

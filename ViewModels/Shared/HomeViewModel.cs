@@ -52,5 +52,41 @@ namespace EngHotel.ViewModels.Shared
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
+
+        [RelayCommand]
+        async Task LuggageServicesClick()
+        {
+            var vm = new LuggageServicesViewModel();
+            var page = new LuggageServicesPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
+        [RelayCommand]
+        async Task ChildcareServicesClick()
+        {
+            var vm = new ChildcareServicesViewModel();
+            var page = new ChildcareServicesPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
+        [RelayCommand]
+        async Task DiningServicesClick()
+        {
+            var vm = new DiningServicesViewModel();
+            var page = new DiningSevicesPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+        [RelayCommand]
+        async Task OpenBofaServicesClick()
+        {
+            var vm = new OpenBofaViewModel();
+            var page = new OpenBofaPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
     }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.NotesPage"
+             Title="NotesPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Orientation="Vertical" Margin="20">
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,30">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Notes" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <CollectionView ItemsSource="{Binding Notes}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Spacing="1">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding EmployeeName}" FontSize="14" TextColor="{StaticResource TextColorDark}"></Label>
+                                <Label Text="{Binding Department}" FontSize="14" TextColor="{StaticResource placeHolderColor}" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <Label Text="{Binding Note}" FontSize="14" TextColor="{StaticResource placeHolderColor}"></Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+            <Border StrokeShape="RoundRectangle 20" HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="Enter your note here" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}" HorizontalOptions="Fill"></Entry>
+            </Border>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}" ></FontImageSource>
+                </Image.Source>
+            </Image>
+        </StackLayout>
+    </StackLayout>
+</Controls:CustomControl>
