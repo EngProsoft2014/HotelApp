@@ -19,5 +19,9 @@ public partial class HomePage : Controls.CustomControl
 		{
 			History.BindingContext = new HistoryViewModel();
 		}
+		else if (e.NewIndex == 3)
+		{
+            More.BindingContext = new MoreViewModel();
+        }
     }
 }

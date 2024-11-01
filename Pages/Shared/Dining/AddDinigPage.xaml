@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.Dining.AddDinigPage"
+             Title="AddDinigPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Margin="20" Spacing="10">
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,30">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Add Dining" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <!--Dining Type-->
+        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+            <Picker Title="Dining Type" TextColor="{StaticResource TextColorDark}"></Picker>
+        </Border>
+        <!--Meal Name-->
+        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+            <Entry Placeholder="Meal Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+        </Border>
+        <!--Price-->
+        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+            <Entry Placeholder="Price" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+        </Border>
+        <!--Description-->
+        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HeightRequest="80">
+            <Entry Placeholder="Description" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+        </Border>
+        <!--Save Buuton-->
+        <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,20" VerticalOptions="EndAndExpand">
+            <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+                FontSize="16" FontAttributes="Bold"></Button>
+        </Border>
+    </StackLayout>
+</ContentPage>

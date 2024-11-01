@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.dashboard.EmployeesPage"
+             Title="EmployeesPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Margin="20">
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Employees" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <VerticalStackLayout Spacing="20">
+                <Border StrokeShape="RoundRectangle 20" HeightRequest="40">
+                    <SearchBar Placeholder="Search" PlaceholderColor="{StaticResource placeHolderColor}" VerticalOptions="CenterAndExpand"></SearchBar>
+                </Border>
+                <CollectionView ItemsSource="{Binding Users}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                                <Label Text="{Binding EmployeeName}" FontSize="14" TextColor="{StaticResource TextColorDark}"></Label>
+                                <Label Text="{Binding Department}" FontSize="14" TextColor="{StaticResource placeHolderColor}" HorizontalOptions="EndAndExpand"></Label>
+                                <Image Margin="35,0,0,0" VerticalOptions="Start">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="" FontFamily="FontIcon" Size="16" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

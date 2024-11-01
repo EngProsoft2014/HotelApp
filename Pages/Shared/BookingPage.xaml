@@ -28,8 +28,8 @@
                 <VerticalStackLayout>
                     <Label Text="Guest Name" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                    <Entry Placeholder="Guest Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
-                </Border>
+                        <Entry Placeholder="Guest Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
                     <Label Text="Guest Contact" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
