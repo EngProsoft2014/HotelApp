@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.Rooms.ImagesPage"
+             Title="ImagesPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Margin="20">
+        <!--Header-->
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Images" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <CollectionView ItemsSource="{Binding LstSt}" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15"></GridItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <!--Room Image-->
+                        <Border StrokeShape="RoundRectangle 15" StrokeDashArray="10,10" Padding="45,25">
+                            <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource Glyph="" Size="25" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                            </VerticalStackLayout>
+                        </Border>
+                        <!--Set as Default-->
+                        <Label Text="Set as Default" TextColor="{StaticResource placeHolderColor}" FontSize="14" VerticalTextAlignment="Center" 
+                               HorizontalOptions="CenterAndExpand"></Label>
+                        <!--Remove-->
+                        <Image Margin="0,0,20,0" VerticalOptions="CenterAndExpand">
+                            <Image.Source>
+                                <FontImageSource Glyph="" FontFamily="FontIcon" Size="16" Color="{StaticResource IconColorDark}"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--Save-->
+        <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="End" Margin="0,0,0,10">
+            <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+            FontSize="16" FontAttributes="Bold"></Button>
+        </Border>
+    </StackLayout>
+</Controls:CustomControl>

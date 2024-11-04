@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.Rooms.AddRoomPage"
+             Title="AddRoomPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Margin="20" Spacing="15">
+        <!--Header-->
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Add Room" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="15">
+                <!--Room Image-->
+                <Border StrokeShape="RoundRectangle 15" StrokeDashArray="10,10" Padding="60">
+                    <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource Glyph="" Size="25" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="Add Image" TextColor="{StaticResource TextColorDark}" FontSize="14"></Label>
+                    </VerticalStackLayout>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddImageClickCommand}"></TapGestureRecognizer>
+                    </Border.GestureRecognizers>
+                </Border>
+                <!--Room Range-->
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="IsRange" Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                    <Label Text="Add Range" TextColor="{StaticResource TextColorDark}" FontSize="14" VerticalTextAlignment="Center"></Label>
+                </HorizontalStackLayout>
+                <!--Room Id-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Entry Placeholder="Room Id" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                </Border>
+                <!--First ID & Latest ID-->
+                <StackLayout Orientation="Horizontal" Spacing="20" IsVisible="{Binding Source={x:Reference IsRange},Path=IsChecked}">
+                    <!--First ID-->
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="First ID" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <!--Latest ID-->
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Latest ID" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                </StackLayout>
+                <!--Room Size & Max Occupancy-->
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Room Size" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Max Occupancy" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                </StackLayout>
+                <!--Bed Type & Room View-->
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Picker Title="Bed Type" TitleColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Picker>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Picker Title="Room View" TitleColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Picker>
+                    </Border>
+                </StackLayout>
+                <!--Room Type & Room floor-->
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Picker Title="Room Type" TitleColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Picker>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Room floor" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                    </Border>
+                </StackLayout>
+                <!--Room Accessibility-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Entry Placeholder="Room Accessibility" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                </Border>
+                <!--Has Balcony-->
+                <StackLayout Orientation="Horizontal">
+                    <!--Has Balcony & Has Kitchenette-->
+                    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                        <CheckBox Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                        <Label Text="Has Balcony" TextColor="{StaticResource TextColorDark}" FontSize="14" VerticalTextAlignment="Center"></Label>
+                    </HorizontalStackLayout>
+                    <!--Has Kitchenette-->
+                    <HorizontalStackLayout>
+                        <CheckBox Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                        <Label Text="Has Kitchenette" TextColor="{StaticResource TextColorDark}" FontSize="14" VerticalTextAlignment="Center"></Label>
+                    </HorizontalStackLayout>
+                </StackLayout>
+                <!--Save-->
+                <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="EndAndExpand" Margin="0,0,0,10">
+                    <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
+                    FontSize="16" FontAttributes="Bold"></Button>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+</Controls:CustomControl>

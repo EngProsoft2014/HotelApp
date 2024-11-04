@@ -2,11 +2,11 @@
 <Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
-             x:Class="EngHotel.Pages.Shared.Dining.DiningMenuPage"
-             Title="DiningMenuPage"
+             x:Class="EngHotel.Pages.Shared.Rooms.RoomsPage"
+             Title="RoomsPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
-    <StackLayout Orientation="Vertical" Margin="20" Spacing="20">
+    <StackLayout Orientation="Vertical" Margin="20">
         <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
             <Image>
                 <Image.Source>
@@ -21,15 +21,15 @@
                     <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
-            <Label Text="Dining Menu" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Rooms" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <Border StrokeShape="RoundRectangle 20" HeightRequest="40">
             <SearchBar Placeholder="Search" PlaceholderColor="{StaticResource placeHolderColor}" VerticalOptions="CenterAndExpand"></SearchBar>
         </Border>
         <Grid VerticalOptions="FillAndExpand">
-            <CollectionView ItemsSource="{Binding Meals}" VerticalOptions="FillAndExpand">
+            <CollectionView ItemsSource="{Binding RoomLst}" VerticalOptions="FillAndExpand">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"></GridItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15"></GridItemsLayout>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -50,7 +50,7 @@
                     <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="40" Color="{StaticResource IconColorDark}"></FontImageSource>
                 </Image.Source>
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding AddDiningClickCommand}"></TapGestureRecognizer>
+                    <TapGestureRecognizer Command="{Binding AddRoomClickCommand}"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
         </Grid>

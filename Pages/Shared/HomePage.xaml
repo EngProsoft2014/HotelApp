@@ -354,6 +354,9 @@
                                             </Image.Source>
                                         </Image>
                                         <Label Text="Rooms" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalOptions="EndAndExpand" ></Label>
+                                        <HorizontalStackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding RoomCLickCommand}"></TapGestureRecognizer>
+                                        </HorizontalStackLayout.GestureRecognizers>
                                     </HorizontalStackLayout>
                                     <!--Orders-->
                                     <HorizontalStackLayout Spacing="7" HeightRequest="25">
@@ -363,6 +366,9 @@
                                             </Image.Source>
                                         </Image>
                                         <Label Text="Orders" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalOptions="EndAndExpand" ></Label>
+                                        <HorizontalStackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OrdersCLickCommand}"></TapGestureRecognizer>
+                                        </HorizontalStackLayout.GestureRecognizers>
                                     </HorizontalStackLayout>
                                     <!--Support-->
                                     <HorizontalStackLayout Spacing="10" HeightRequest="25" Margin="0,70,0,0">

@@ -1,9 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using EngHotel.Pages.Orders;
 using EngHotel.Pages.Shared.dashboard;
 using EngHotel.Pages.Shared.Dining;
+using EngHotel.Pages.Shared.Rooms;
 using EngHotel.Pages.Shared.User;
+using EngHotel.ViewModels.Orders;
 using EngHotel.ViewModels.Shared.dashboard;
 using EngHotel.ViewModels.Shared.Dining;
+using EngHotel.ViewModels.Shared.Rooms;
 using EngHotel.ViewModels.User.Shared;
 using System;
 using System.Collections.Generic;
@@ -38,6 +42,24 @@ namespace EngHotel.ViewModels.Shared
         {
             var vm = new DashboardViewModels();
             var page = new DashboardPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
+        [RelayCommand]
+        async Task RoomCLick()
+        {
+            var vm = new RoomViewModel();
+            var page = new RoomsPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
+
+        [RelayCommand]
+        async Task OrdersCLick()
+        {
+            var vm = new OrderViewModel();
+            var page = new OrderPage();
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }

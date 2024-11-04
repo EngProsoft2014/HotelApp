@@ -2,9 +2,9 @@
 <Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
-             xmlns:vm="clr-namespace:EngHotel.ViewModels.Shared.dashboard"
-             x:Class="EngHotel.Pages.Shared.dashboard.DashboardPage"
-             Title="DashboardPage"
+             xmlns:vm="clr-namespace:EngHotel.ViewModels.Orders"
+             x:Class="EngHotel.Pages.Orders.OrderPage"
+             Title="OrderPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
     <StackLayout Margin="20,20,20,0" Spacing="20">
@@ -22,7 +22,7 @@
                     <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
-            <Label Text="DashBoard" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Orders" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <Border StrokeShape="RoundRectangle 20" HeightRequest="40">
             <SearchBar Placeholder="Search" PlaceholderColor="{StaticResource placeHolderColor}" VerticalOptions="CenterAndExpand"></SearchBar>
@@ -35,34 +35,19 @@
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <Label Text="Room ID : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
                                 <Label Text="{Binding RoomId}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
-                                <Border StrokeShape="RoundRectangle 0,20,20,0" HorizontalOptions="EndAndExpand" WidthRequest="80" HeightRequest="30" VerticalOptions="StartAndExpand">
-                                    <Label Text="{Binding Status}" FontSize="12" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Completed">
-                                                <Setter Property="TextColor" Value="{StaticResource CompletedColor}"></Setter>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Progress">
-                                                <Setter Property="TextColor" Value="{StaticResource ProcessingColor}"></Setter>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Pending">
-                                                <Setter Property="TextColor" Value="{StaticResource PendingColor}"></Setter>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </Border>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <HorizontalStackLayout>
-                                    <Label Text="Guest Name : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
-                                    <Label Text="{Binding GuestName}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
-                                </HorizontalStackLayout>
-                                <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                                <HorizontalStackLayout HorizontalOptions="StartAndExpand">
                                     <Label Text="Date : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
                                     <Label Text="{Binding Date,StringFormat='{0:MM-dd-yyyy}'}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
                                 </HorizontalStackLayout>
+                                <HorizontalStackLayout>
+                                    <Label Text="Waiting time : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
+                                    <Label Text="3 M" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
+                                </HorizontalStackLayout>
                             </StackLayout>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DashboardViewModels}}, Path=SelectRecordCommand}"></TapGestureRecognizer>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:OrderViewModel}}, Path=SelectItemClickCommand}"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </Border>

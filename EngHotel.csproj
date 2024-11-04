@@ -89,6 +89,33 @@
 	  <Compile Update="Pages\CreateRequest\LaundryServicesPage.xaml.cs">
 	    <DependentUpon>LaundryServicesPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\BathroomServicesDetailsPage.xaml.cs">
+	    <DependentUpon>BathroomServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\ChildcareServicesDetailsPage.xaml.cs">
+	    <DependentUpon>ChildcareServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\DiningSevicesDetailsPage.xaml.cs">
+	    <DependentUpon>DiningSevicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\HousekeepingServicesDetailsPage.xaml.cs">
+	    <DependentUpon>HousekeepingServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\LaundryServicesDetailsPage.xaml.cs">
+	    <DependentUpon>LaundryServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\LuggageServicesDetailsPage.xaml.cs">
+	    <DependentUpon>LuggageServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\MaintenanceServicesDetailsPage.xaml.cs">
+	    <DependentUpon>MaintenanceServicesDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\OpenBofaDetailsPage .xaml.cs">
+	    <DependentUpon>OpenBofaDetailsPage .xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Orders\OrderDetails\RoomServiceDetailsPage.xaml.cs">
+	    <DependentUpon>RoomServiceDetailsPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -122,6 +149,39 @@
 	  <MauiXaml Update="Pages\CreateRequest\RoomServicePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\BathroomServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\ChildcareServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\DiningSevicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\HousekeepingServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\LaundryServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\LuggageServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\MaintenanceServicesDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\OpenBofaDetailsPage .xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\OrderDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderDetails\RoomServiceDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Orders\OrderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Shared\BookingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -150,6 +210,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Shared\ResetPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Shared\Rooms\AddRoomPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Shared\Rooms\ImagesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Shared\Rooms\RoomsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Shared\SignUpPage.xaml">
