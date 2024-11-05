@@ -2,6 +2,7 @@
 <Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
+             xmlns:vm="clr-namespace:EngHotel.ViewModels.Orders.OrderDetails"
              x:Class="EngHotel.Pages.Orders.OrderDetails.OrderDetailsPage"
              Title="OrderDetailsPage"
              NavigationPage.HasNavigationBar="False"
@@ -42,6 +43,10 @@
                                 <FontImageSource Glyph="" FontFamily="FontIcon" Size="16" Color="{StaticResource IconColorDark}"></FontImageSource>
                             </Image.Source>
                         </Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:OrderDetailsViewModel}}, Path=SelectClickCommand}"
+                                                  CommandParameter="{Binding}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

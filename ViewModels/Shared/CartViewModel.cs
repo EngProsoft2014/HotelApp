@@ -65,13 +65,6 @@ namespace EngHotel.ViewModels.Shared
 
         }
 
-        [RelayCommand]
-        async Task NotesClick()
-        {
-            var vm = new NotesViewModel();
-            var page = new NotesPage();
-            page.BindingContext = vm;
-            await App.Current!.MainPage!.Navigation.PushAsync(page);
-        }
+        
     }
 }
