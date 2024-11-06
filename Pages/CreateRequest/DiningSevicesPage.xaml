@@ -22,6 +22,11 @@
                 </Image.GestureRecognizers>
             </Image>
             <Label Text="Dining Service" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Notes" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NotesClickCommand}"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="20">

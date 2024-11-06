@@ -14,16 +14,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TripBliss.Helpers;
 
 namespace EngHotel.ViewModels.Shared
 {
     public partial class MoreViewModel : BaseViewModel
     {
+        #region Service
+        readonly IGenericRepository Rep;
+        readonly Services.Data.ServicesService _service;
+        #endregion
 
+        public MoreViewModel(IGenericRepository GenericRep, Services.Data.ServicesService service)
+        {
+            Rep = GenericRep;
+            _service = service;
+        }
+
+        #region RelayCommand
         [RelayCommand]
         async Task UsersCLick()
         {
-            var vm = new UsersViewModel();
+            var vm = new UsersViewModel(Rep, _service);
             var page = new UsersPage();
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
@@ -62,6 +74,7 @@ namespace EngHotel.ViewModels.Shared
             var page = new OrderPage();
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
-        }
+        } 
+        #endregion
     }
 }

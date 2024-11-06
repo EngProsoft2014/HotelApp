@@ -79,7 +79,7 @@ namespace EngHotel.ViewModels.Shared
                 }
                 else
                 {
-                    IsBusy = true;
+                    IsBusy = false;
                     UserDialogs.Instance.ShowLoading();
 
                     //model.UserName = model.UserName.ToLower();
@@ -91,7 +91,7 @@ namespace EngHotel.ViewModels.Shared
                     {
                         UserResponse = json;
 
-                        if (UserResponse.User_ID != 0 && UserResponse.User_ID != null)
+                        if (UserResponse.User_ID == 0 && UserResponse.User_ID == null)
                         {
 
                             Preferences.Default.Set(ApiConstants.userid, UserResponse!.User_ID);
@@ -100,7 +100,7 @@ namespace EngHotel.ViewModels.Shared
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
                             var vm = new HomeViewModel();
-                            var page = new HomePage();
+                            var page = new HomePage(Rep,_service);
                             page.BindingContext = vm;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
                             await BlobCache.LocalMachine.InsertObject(ServicesService.UserTokenServiceKey, UserResponse?.Token, DateTimeOffset.Now.AddMinutes(43200));
@@ -117,10 +117,13 @@ namespace EngHotel.ViewModels.Shared
                     }
 
                     UserDialogs.Instance.HideHud();
-                    IsBusy = false;
+                    IsBusy = true;
                 }
             }
-
+            var vm1 = new HomeViewModel();
+            var page1 = new HomePage(Rep, _service);
+            page1.BindingContext = vm1;
+            await App.Current!.MainPage!.Navigation.PushAsync(page1);
         }
     }
 }

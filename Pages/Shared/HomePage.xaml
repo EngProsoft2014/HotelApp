@@ -14,7 +14,7 @@
                 <!--Home Page-->
                 <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}" >
                     <tabView:SfTabItem.ImageSource>
-                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource TabIconColor}"></FontImageSource>
                     </tabView:SfTabItem.ImageSource>
                     <tabView:SfTabItem.Content>
                         <ContentView>
@@ -195,7 +195,7 @@
                 <!--Cart-->
                 <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
                     <tabView:SfTabItem.ImageSource>
-                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource TabIconColor}"></FontImageSource>
                     </tabView:SfTabItem.ImageSource>
                     <tabView:SfTabItem.Content>
                         <ContentView x:Name="CartView">
@@ -233,7 +233,7 @@
                 <!--History-->
                 <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
                     <tabView:SfTabItem.ImageSource>
-                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}"></FontImageSource>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource TabIconColor}"></FontImageSource>
                     </tabView:SfTabItem.ImageSource>
                     <tabView:SfTabItem.Content>
                         <ContentView x:Name="History">
@@ -289,9 +289,10 @@
                 <!--More-->
                 <tabView:SfTabItem FontFamily="ElMessiri-Regular" TextColor="{StaticResource TextColorDark}">
                     <tabView:SfTabItem.ImageSource>
-                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource IconColorDark}">
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Size="15" Color="{StaticResource TabIconColor}">
                         </FontImageSource>
                     </tabView:SfTabItem.ImageSource>
+                    
                     <tabView:SfTabItem.Content>
                         <ContentView x:Name="More">
                             <ScrollView VerticalOptions="FillAndExpand">

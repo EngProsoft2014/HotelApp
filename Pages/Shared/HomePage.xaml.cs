@@ -1,13 +1,21 @@
 using EngHotel.ViewModels.Shared;
+using TripBliss.Helpers;
 
 namespace EngHotel.Pages.Shared;
 
 public partial class HomePage : Controls.CustomControl
 {
-	public HomePage()
+    #region Service
+    readonly IGenericRepository Rep;
+    readonly Services.Data.ServicesService _service;
+    #endregion
+
+    public HomePage(IGenericRepository GenericRep, Services.Data.ServicesService service)
 	{
 		InitializeComponent();
-	}
+        Rep = GenericRep;
+        _service = service;
+    }
 
     private void SfTabView_SelectionChanged(object sender, Syncfusion.Maui.TabView.TabSelectionChangedEventArgs e)
     {
@@ -21,7 +29,7 @@ public partial class HomePage : Controls.CustomControl
 		}
 		else if (e.NewIndex == 3)
 		{
-            More.BindingContext = new MoreViewModel();
+            More.BindingContext = new MoreViewModel(Rep,_service);
         }
     }
 }

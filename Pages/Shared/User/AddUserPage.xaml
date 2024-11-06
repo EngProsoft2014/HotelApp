@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
+             xmlns:vm="clr-namespace:EngHotel.ViewModels.Shared.User"
              x:Class="EngHotel.Pages.Shared.User.AddUserPage"
              Title="AddUserPage"
              NavigationPage.HasNavigationBar="False"
@@ -25,31 +26,59 @@
         </StackLayout>
         <!--Name-->
         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-            <Entry Placeholder="Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+            <Entry Placeholder="Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                   Text="{Binding UsersRequest.FirstName}"></Entry>
         </Border>
         <!--Phone-->
         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-            <Entry Placeholder="Phone" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+            <Entry Placeholder="Phone" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                   Text="{Binding UsersRequest.Phone}"></Entry>
         </Border>
         <!--Email-->
         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-            <Entry Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+            <Entry Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                   Text="{Binding UsersRequest.Email}"></Entry>
         </Border>
         <!--password-->
         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-            <Entry Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+            <Entry Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                   Text="{Binding UsersRequest.Password}"></Entry>
         </Border>
         <!--Pin Number & Role-->
         <StackLayout Orientation="Horizontal" Spacing="20">
             <!--Pin Number-->
             <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="Pin Number" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                <Entry Placeholder="Pin Number" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                       Text="{Binding UsersRequest.PINNumber}"></Entry>
             </Border>
             <!--Role-->
             <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
                 <Picker Title="Role" TextColor="{StaticResource TextColorDark}"></Picker>
             </Border>
         </StackLayout>
+        <!--Services-->
+        <CollectionView x:Name="CollecServ" ItemsSource="{Binding Services}" VerticalOptions="FillAndExpand" Margin="0,20,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout>
+                        <Label Text="{Binding serviceName}" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalTextAlignment="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding isSelected}" Value="true">
+                                    <Setter Property="TextColor" Value="{StaticResource CompletedColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AddUserViewModel}},Path=AddServiceCommand}" 
+                                                  CommandParameter="{Binding}"></TapGestureRecognizer>
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"></GridItemsLayout>
+            </CollectionView.ItemsLayout>
+        </CollectionView>
         <!--Save Buuton-->
         <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,20" VerticalOptions="EndAndExpand">
             <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"

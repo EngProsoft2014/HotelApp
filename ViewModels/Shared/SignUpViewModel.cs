@@ -74,42 +74,27 @@ namespace EngHotel.ViewModels.Shared
                 }
                 else
                 {
-                    IsBusy = true;
+                    IsBusy = false;
                     UserDialogs.Instance.ShowLoading();
                     string UserToken = await _service.UserToken();
                     var json = await Rep.PostTRAsync<UsersDTO,UsersDTO>(ApiConstants.RegisterApi,UserModel);
-
                     if (json.Item1 != null)
                     {
                         UserModel = json.Item1;
 
                         if (UserModel.User_ID != 0 && UserModel.User_ID != null)
                         {
-
-                            Preferences.Default.Set(ApiConstants.userid, UserModel!.User_ID);
-                            Preferences.Default.Set(ApiConstants.email, UserModel.Email);
-                            Preferences.Default.Set(ApiConstants.PINNumber, UserModel.PINNumber);
-                            Preferences.Default.Set(ApiConstants.Role, UserModel.Role);
-                            Preferences.Default.Set(ApiConstants.Role, UserModel.Role);
-                            var vm = new HomeViewModel();
-                            var page = new HomePage();
-                            page.BindingContext = vm;
-                            await App.Current!.MainPage!.Navigation.PushAsync(page);
-                            await BlobCache.LocalMachine.InsertObject(ServicesService.UserTokenServiceKey, UserModel?.Token, DateTimeOffset.Now.AddMinutes(43200));
-
+                            var toast = Toast.Make("Account is created successfully", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
+                            await toast.Show();
                         }
                         else
                         {
-                            var vm = new LoginViewModel(Rep, _service);
-                            var page = new LoginPage();
-                            page.BindingContext = vm;
-                            await App.Current!.MainPage!.Navigation.PushAsync(page);
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            var toast = Toast.Make("Error in Create Account", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
+                            await toast.Show();
                         }
                     }
-
                     UserDialogs.Instance.HideHud();
-                    IsBusy = false;
+                    IsBusy = true;
                 }
             }
         }

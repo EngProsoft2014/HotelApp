@@ -9,16 +9,25 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TripBliss.Helpers;
 
 namespace EngHotel.ViewModels.User.Shared
 {
     public partial class UsersViewModel : BaseViewModel
     {
+        #region Prop
         [ObservableProperty]
-        ObservableCollection<UserModel> users = new ObservableCollection<UserModel>();
+        ObservableCollection<UserModel> users = new ObservableCollection<UserModel>(); 
+        #endregion
 
-        public UsersViewModel()
+        #region Service
+        readonly IGenericRepository Rep;
+        readonly Services.Data.ServicesService _service;
+        #endregion
+        public UsersViewModel(IGenericRepository GenericRep, Services.Data.ServicesService service)
         {
+            Rep = GenericRep;
+            _service = service;
             LoadData(); 
         }
 
@@ -47,8 +56,8 @@ namespace EngHotel.ViewModels.User.Shared
         [RelayCommand]
         async Task AddUserClick()
         {
-            var vm = new AddUserViewModel();
-            var page = new AddUserPage();
+            var vm = new AddUserViewModel(Rep,_service);
+            var page = new AddUserPage(vm);
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }

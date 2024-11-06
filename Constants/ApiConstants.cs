@@ -36,14 +36,14 @@ namespace EngHotel.Constants
         // End Login Api
 
         // Register Api 
-        public static string RegisterApi = "api/Users/Add";
+        public static string RegisterApi = "api/Users";
         // End Register Api 
         #endregion
 
-        #region Hotel Service Apis
-        // AllLocations Api
-        public static string GetAllLocationsApi = "api/Location/current";
-        // End AllLocations Api
+        #region Service Apis
+        // AllSevices Api
+        public static string GetAllSevicesApi = "api/Service";
+        // End AllSevices Api
 
         // AllHotels Api
         public static string GetAllHotelsApi = "api/Hotel/current";

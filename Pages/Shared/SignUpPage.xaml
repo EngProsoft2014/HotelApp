@@ -4,6 +4,7 @@
              xmlns:Controls="clr-namespace:EngHotel.Controls"
              x:Class="EngHotel.Pages.Shared.SignUpPage"
              Title="SignUpPage"
+             IsEnabled="{Binding IsBusy}"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
     <StackLayout Orientation="Vertical" Margin="20" Spacing="15">

@@ -76,7 +76,7 @@ namespace EngHotel.ViewModels.Shared
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
                             var vm = new HomeViewModel();
-                            var page = new HomePage();
+                            var page = new HomePage(Rep,_service);
                             page.BindingContext = vm;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
                             await BlobCache.LocalMachine.InsertObject(ServicesService.UserTokenServiceKey, UserResponse?.Token, DateTimeOffset.Now.AddMinutes(43200));

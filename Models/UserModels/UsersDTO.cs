@@ -21,6 +21,6 @@ namespace EngHotel.Models.UserModels
         public int Type { get; set; }
         public string? Token { get; set; }
         public int ExpiresIn { get; set; }
-        public List<UserServicesDTO>? lstUserServices { get; set; }
+        public List<UserServicesDTO>? lstUserServices { get; set; } = new List<UserServicesDTO>();
     }
 }
