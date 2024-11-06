@@ -66,6 +66,7 @@
 	  <None Remove="Resources\Fonts\Inter-Medium.ttf" />
 	  <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
 	  <None Remove="Resources\Fonts\OpenSans-Semibold.ttf" />
+	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -79,6 +80,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Mopups" Version="1.3.2" />
 		<PackageReference Include="Polly" Version="8.4.2" />
+		<PackageReference Include="Syncfusion.Maui.Chat" Version="27.1.58" />
 		<PackageReference Include="Syncfusion.Maui.TabView" Version="27.1.56" />
 	</ItemGroup>
 
@@ -234,5 +236,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionEngHotelHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

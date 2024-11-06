@@ -26,12 +26,9 @@
                        HorizontalOptions="Center" Margin="0,120,0,100"></Label>
                 <VerticalStackLayout Spacing="10">
                     <Border StrokeShape="RoundRectangle 20,0,0,20">
-                        <Entry x:Name="entryEmail" Placeholder="Room Id" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
-                    </Border>
-                    <Border StrokeShape="RoundRectangle 20,0,0,20">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
-                            <Entry x:Name="entryPassword" Placeholder="Secrt Key" PlaceholderColor="{StaticResource placeHolderColor}"
-                       IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
+                            <Entry x:Name="entryPassword" Placeholder="PIN Number" PlaceholderColor="{StaticResource placeHolderColor}"
+                                   IsPassword="True" TextColor="{StaticResource TextColorDark}" Text="{Binding PinNumber}"></Entry>
                             <Image x:Name="imgEyePass" Margin="0,0,10,0" HorizontalOptions="EndAndExpand">
                                 <Image.Source>
                                     <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
@@ -53,7 +50,8 @@
                     </Border>
                     <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
                         <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorDark}"
-                                FontSize="16" FontAttributes="Bold"></Button>
+                                FontSize="16" FontAttributes="Bold"
+                                Command="{Binding LoginClickCommand}" CommandParameter="{Binding PinNumber}"></Button>
                     </Border>
                 </VerticalStackLayout>
                 <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">
@@ -66,6 +64,5 @@
                 </HorizontalStackLayout>
             </StackLayout>
         </ScrollView>
-
     </StackLayout>
 </Controls:CustomControl>

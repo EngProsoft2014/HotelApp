@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EngHotel.Models;
+using Syncfusion.Maui.Chat;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,12 +15,22 @@ namespace EngHotel.ViewModels.Shared
     {
         [ObservableProperty]
         ObservableCollection<NoteModel> notes = new ObservableCollection<NoteModel>();
+        [ObservableProperty]
+        private ObservableCollection<object> messages;
 
+        /// <summary>
+        /// Current user of the chat.
+        /// </summary>
+        [ObservableProperty]
+        private Author currentUser;
         public NotesViewModel()
         {
-            LoadData();
+            Messages = new ObservableCollection<object>();
+            CurrentUser = new Author() { Name = "Nancy" };
+            GenerateMessages();
+            //LoadData();
         }
-
+        
         void LoadData()
         {
             Notes.Add(new NoteModel
@@ -98,6 +109,39 @@ namespace EngHotel.ViewModels.Shared
         async Task BackCLick()
         {
             await App.Current!.MainPage!.Navigation.PopAsync();
+        }
+
+        private void GenerateMessages()
+        {
+            Messages.Add(new TextMessage()
+            {
+                Author = CurrentUser,
+                Text = "Hi guys, good morning! I'm very delighted to share with you the news that our team is going to launch a new mobile application.",
+            });
+
+            Messages.Add(new TextMessage()
+            {
+                Author = new Author() { Name = "Andrea", Avatar = "user.png" },
+                Text = "Oh! That's great.",
+            });
+
+            Messages.Add(new TextMessage()
+            {
+                Author = new Author() { Name = "Harrison", Avatar = "user.png" },
+                Text = "That is good news.",
+            });
+
+            Messages.Add(new TextMessage()
+            {
+                Author = new Author() { Name = "Margaret", Avatar = "user.png" },
+                Text = "Are we going to develop the app natively or hybrid?",
+            });
+
+            Messages.Add(new TextMessage()
+            {
+                Author = CurrentUser,
+                Text = "We should develop this app in .NET MAUI, since it provides native experience and performance.",
+            });
         }
     }
 }

@@ -26,12 +26,13 @@
                        HorizontalOptions="Center" Margin="0,120,0,100"></Label>
                 <VerticalStackLayout Spacing="10">
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry x:Name="entryEmail" Placeholder="User Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry x:Name="entryEmail" Placeholder="User Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding Request.UserName}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
                             <Entry x:Name="entryPassword" Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}"
-                           IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
+                                   IsPassword="True" TextColor="{StaticResource TextColorDark}" Text="{Binding Request.Password}"></Entry>
                             <Image x:Name="imgEyePass" Margin="0,0,10,0" HorizontalOptions="EndAndExpand">
                                 <Image.Source>
                                     <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
@@ -58,7 +59,7 @@
                     </Label>
                     <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,0">
                         <Button Text="Login" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-                        FontSize="16" FontAttributes="Bold"  Command='{Binding LoginClickCommand}'></Button>
+                                FontSize="16" FontAttributes="Bold"  Command='{Binding LoginClickCommand}' CommandParameter="{Binding Request}"></Button>
                     </Border>
                 </VerticalStackLayout>
                 <HorizontalStackLayout Spacing="3" VerticalOptions="EndAndExpand" Margin="0,0,0,5" HorizontalOptions="CenterAndExpand">

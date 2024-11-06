@@ -15,7 +15,7 @@ namespace EngHotel.Controls
     static class StaticMember
     {
         #region Const Variables
-        public static string SnackBarColor = "#2fa562";
+        public static string SnackBarColor = "#000000";
         public static string SnackBarTextColor = "#FFFFFF";
         public static int WayOfTab { get; set; } = 0;
         public static int WayOfPhotosPopup { get; set; } = 0;

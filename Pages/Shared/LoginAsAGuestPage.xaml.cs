@@ -6,10 +6,6 @@ public partial class LoginAsAGuestPage : Controls.CustomControl
 	{
 		InitializeComponent();
 
-        entryEmail.Completed += (object sender, EventArgs e) =>
-        {
-            entryPassword.Focus();
-        };
         entryPassword.Completed += (object sender, EventArgs e) =>
         {
             //ViewModel.ClickLoginCommand.Execute(ViewModel.LoginRequest);

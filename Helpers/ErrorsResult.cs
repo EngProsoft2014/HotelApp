@@ -8,14 +8,10 @@ namespace EngHotel.Helpers
 {
     public class ErrorsResult
     {
-
-        public class ErrorResult
-        {
-            public string? type { get; set; }
-            public string? title { get; set; }
-            public int? status { get; set; }
-            public Dictionary<string, object>? errors { get; set; }
-            public string? traceId { get; set; }
-        }
+        public int? statusCode { get; set; }
+        public string? title { get; set; }
+        public string? message { get; set; }
+        public string? titleAr { get; set; }
+        public string? messageAr { get; set; }
     }
 }

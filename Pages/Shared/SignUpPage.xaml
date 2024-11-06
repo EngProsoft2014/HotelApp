@@ -24,24 +24,29 @@
             <StackLayout>
                 <VerticalStackLayout VerticalOptions="CenterAndExpand" Spacing="15">
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="First Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="First Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding UserModel.FirstName}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Last Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Last Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding UserModel.LastName}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Phone" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Phone" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding UserModel.Phone}" Keyboard="Numeric"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Email" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding UserModel.Email}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Country" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Country" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding UserModel.Country}"></Entry>
                     </Border>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
                             <Entry x:Name="entryPassword" Placeholder="Password" PlaceholderColor="{StaticResource placeHolderColor}"
-               IsPassword="True" TextColor="{StaticResource TextColorDark}"></Entry>
+                                   IsPassword="True" TextColor="{StaticResource TextColorDark}" Text="{Binding UserModel.Password}"></Entry>
                             <Image x:Name="imgEyePass" Margin="0,0,10,0" HorizontalOptions="EndAndExpand">
                                 <Image.Source>
                                     <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="Gray" Size="15"></FontImageSource>
@@ -65,7 +70,7 @@
                 <!--button-->
                 <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="EndAndExpand">
                     <Button Text="Sign Up" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-                    FontSize="16" FontAttributes="Bold"></Button>
+                            FontSize="16" FontAttributes="Bold" Command="{Binding SignUpClickCommand}" CommandParameter="{Binding UserModel}"></Button>
                 </Border>
                 <HorizontalStackLayout Spacing="3" Margin="0,30,0,5" HorizontalOptions="CenterAndExpand">
                     <Label Text="Are You have account?" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>

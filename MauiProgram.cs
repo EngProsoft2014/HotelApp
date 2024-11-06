@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Maui;
 using Controls.UserDialogs.Maui;
+using EngHotel.Services.Data;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 using Syncfusion.Maui.Core.Hosting;
+using TripBliss.Helpers;
 
 namespace EngHotel
 {
@@ -31,6 +33,9 @@ namespace EngHotel
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<ServicesService>();
+            builder.Services.AddScoped<IGenericRepository, GenericRepository>();
 
             return builder.Build();
         }

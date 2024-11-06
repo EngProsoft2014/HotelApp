@@ -17,11 +17,11 @@ namespace EngHotel.Constants
         // Preferences Key
         public static string userid = "userid";
         public static string email = "email";
-        public static string username = "username";
         public static string password = "password";
-        public static string userPermision = "userPermision";
-        public static string userCategory = "userCategory"; //1 = system , 2 = Travel Agency , 3 = Distributor
-        public static string travelAgencyCompanyId = "travelAgencyCompanyId";
+        public static string PINNumber = "PINNumber";
+        public static string Role = "Role"; 
+        public static string Type = "Type"; //1 = Guest , 2 = User 
+
         public static string distributorCompanyId = "distributorCompanyId";
         public static string permissions = "permissions";
         public static string review = "review";
@@ -30,11 +30,13 @@ namespace EngHotel.Constants
 
         #region Login & Register Api
         // Login Api
-        public static string LoginApi = "api/ApplicationUser/Login";
+        public static string LoginApi = "api/Users/Login?";
+        // Login by Pin Number Api
+        public static string LoginByPinApi = "api/Users/LoginUsingPINNumber?";
         // End Login Api
 
-        // Register Api
-        public static string RegisterApi = "api/ApplicationUser/Register";
+        // Register Api 
+        public static string RegisterApi = "api/Users/Add";
         // End Register Api 
         #endregion
 
