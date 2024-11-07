@@ -82,7 +82,7 @@ namespace EngHotel.ViewModels.Shared
                     {
                         UserModel = json.Item1;
 
-                        if (UserModel.User_ID != 0 && UserModel.User_ID != null)
+                        if (UserModel.ID != 0 && UserModel.ID != null)
                         {
                             var toast = Toast.Make("Account is created successfully", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
                             await toast.Show();

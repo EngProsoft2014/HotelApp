@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using Akavache;
+using CommunityToolkit.Mvvm.Input;
 using EngHotel.Pages.Orders;
+using EngHotel.Pages.Shared;
 using EngHotel.Pages.Shared.dashboard;
 using EngHotel.Pages.Shared.Dining;
 using EngHotel.Pages.Shared.Rooms;
@@ -12,6 +14,7 @@ using EngHotel.ViewModels.User.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TripBliss.Helpers;
@@ -74,7 +77,29 @@ namespace EngHotel.ViewModels.Shared
             var page = new OrderPage();
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
-        } 
+        }
+
+        [RelayCommand]
+        [Obsolete]
+        Task ExitClick()
+        {
+            Action action = async () =>
+            {
+                string LangValueToKeep = Preferences.Default.Get("Lan", "en");
+                Preferences.Default.Clear();
+                await BlobCache.LocalMachine.InvalidateAll();
+                await BlobCache.LocalMachine.Vacuum();
+                Constants.Permissions.LstPermissions.Clear();
+
+                Preferences.Default.Set("Lan", LangValueToKeep);
+                var vm = new OnBordingViewModel(Rep, _service);
+                var page = new OnBordingPage();
+                page.BindingContext = vm;
+                App.Current!.MainPage = new NavigationPage(page);
+            };
+            Controls.StaticMember.ShowSnackBar("Do you want to Logout", Controls.StaticMember.SnackBarColor, Controls.StaticMember.SnackBarTextColor, action);
+            return Task.CompletedTask;
+        }
         #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace EngHotel.Models.UserModels
 {
     public class UsersDTO
     {
-        public int User_ID { get; set; }
+        public int ID { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Phone { get; set; }
@@ -17,8 +17,8 @@ namespace EngHotel.Models.UserModels
         public string? NewPassword { get; set; }
         public string? PINNumber { get; set; }
         public string? Country { get; set; }
-        public string? Role { get; set; }
-        public int Type { get; set; }
+        public string? Role { get; set; } = "0";
+        public int Type { get; set; } = 0; // Guest = 0 , Employee = 1
         public string? Token { get; set; }
         public int ExpiresIn { get; set; }
         public List<UserServicesDTO>? lstUserServices { get; set; } = new List<UserServicesDTO>();

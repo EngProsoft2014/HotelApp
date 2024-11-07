@@ -48,20 +48,20 @@ namespace EngHotel.ViewModels.Shared.User
         public void AddService(serviceModel model)
         {
             model.isSelected = !model.isSelected;
-            if (model.isSelected)
+            var cc = UsersRequest.lstUserServices!.FirstOrDefault(a => a.Service_ID == model.id);
+            if (model.isSelected && cc == null)
             {
                 UsersRequest.lstUserServices!.Add(new UserServicesDTO { Service_ID = model.id });
             }
             else
-            {
-                var cc = UsersRequest.lstUserServices!.FirstOrDefault(a => a.Service_ID == model.id);
+            { 
                 if (cc != null)
                 {
                     UsersRequest.lstUserServices!.Remove(cc);
                 }
             }
         }
-
+        [RelayCommand]
         async Task SignUpClick(UsersDTO model)
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -99,14 +99,16 @@ namespace EngHotel.ViewModels.Shared.User
                 else
                 {
                     IsBusy = false;
+                    model.Type = 1;
+                    model.Role = "Manger";
                     UserDialogs.Instance.ShowLoading();
                     string UserToken = await _service.UserToken();
-                    var json = await Rep.PostTRAsync<UsersDTO, UsersDTO>(ApiConstants.RegisterApi, UsersRequest);
+                    var json = await Rep.PostTRAsync<UsersDTO, UsersDTO>(ApiConstants.RegisterApi, UsersRequest,UserToken);
                     if (json.Item1 != null)
                     {
                         UsersRequest = json.Item1;
 
-                        if (UsersRequest.User_ID != 0 && UsersRequest.User_ID != null)
+                        if (UsersRequest.ID != 0 && UsersRequest.ID != null)
                         {
                             var toast = Toast.Make("Account is created successfully", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
                             await toast.Show();
@@ -134,7 +136,7 @@ namespace EngHotel.ViewModels.Shared.User
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string UserToken = await _service.UserToken();
-                if (string.IsNullOrEmpty(UserToken))
+                if (!string.IsNullOrEmpty(UserToken))
                 {
                     UserDialogs.Instance.ShowLoading();
                     var json = await Rep.GetAsync<ObservableCollection<serviceModel>>(ApiConstants.GetAllSevicesApi, UserToken);

@@ -6,12 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TripBliss.Helpers;
 
 namespace EngHotel.ViewModels.Shared
 {
     public partial class HomeViewModel : BaseViewModel
     {
+        #region Services
+        IGenericRepository Rep;
+        readonly Services.Data.ServicesService _service;
+        #endregion
+        public HomeViewModel(IGenericRepository GenericRep, Services.Data.ServicesService service)
+        {
+            Rep = GenericRep;
+            _service = service;
+        }
 
+
+        #region RelayCommand
         [RelayCommand]
         async Task RoomServiceClick()
         {
@@ -87,6 +99,8 @@ namespace EngHotel.ViewModels.Shared
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
+        #endregion
 
+        
     }
 }

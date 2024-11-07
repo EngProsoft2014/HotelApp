@@ -384,6 +384,18 @@
                                         </Image>
                                         <Label Text="Language" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalOptions="EndAndExpand" ></Label>
                                     </HorizontalStackLayout>
+                                    <!--Exit-->
+                                    <HorizontalStackLayout Spacing="7" HeightRequest="25">
+                                        <Image VerticalOptions="CenterAndExpand">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}" Size="20"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="Exit" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalOptions="EndAndExpand" ></Label>
+                                        <HorizontalStackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ExitClickCommand}"></TapGestureRecognizer>
+                                        </HorizontalStackLayout.GestureRecognizers>
+                                    </HorizontalStackLayout>
                                 </StackLayout>
                             </ScrollView>
                         </ContentView>

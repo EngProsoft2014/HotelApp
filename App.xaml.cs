@@ -18,15 +18,28 @@ namespace EngHotel
             #region Prop
             _service = service;
             Rep = generic; 
+            int UserId = Preferences.Default.Get(ApiConstants.userid , 0);
+            string Email = Preferences.Default.Get(ApiConstants.email , "");
             #endregion
 
             InitializeComponent();
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(ApiConstants.syncFusionLicence);
-            var vm = new OnBordingViewModel(Rep,_service);
-            var page = new OnBordingPage();
-            page.BindingContext = vm;
-            MainPage = new NavigationPage(page);
+            if (UserId != 0 && !string.IsNullOrEmpty(Email))
+            {
+                var vm = new HomeViewModel(Rep, _service);
+                var page = new HomePage(Rep, _service);
+                page.BindingContext = vm;
+                MainPage = new NavigationPage(page);
+            }
+            else
+            {
+                var vm = new OnBordingViewModel(Rep, _service);
+                var page = new OnBordingPage();
+                page.BindingContext = vm;
+                MainPage = new NavigationPage(page);
+            }
         }
+
     }
 }

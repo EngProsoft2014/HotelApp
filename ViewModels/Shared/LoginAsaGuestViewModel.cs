@@ -58,24 +58,21 @@ namespace EngHotel.ViewModels.Shared
                     IsBusy = true;
                     UserDialogs.Instance.ShowLoading();
 
-                    //model.UserName = model.UserName.ToLower();
-                    //model.Password = model.Password.ToLower();
                     string uri = $"{ApiConstants.LoginByPinApi}Pinnumber={pass}";
                     var json = await Rep.GetLoginAsync<UserRequest>(uri);
-
                     if (json != null)
                     {
                         UserResponse = json;
 
-                        if (UserResponse.User_ID != 0 && UserResponse.User_ID != null)
+                        if (UserResponse.ID != 0 && UserResponse.ID != null)
                         {
 
-                            Preferences.Default.Set(ApiConstants.userid, UserResponse!.User_ID);
+                            Preferences.Default.Set(ApiConstants.userid, UserResponse!.ID);
                             Preferences.Default.Set(ApiConstants.email, UserResponse.Email);
                             Preferences.Default.Set(ApiConstants.PINNumber, UserResponse.PINNumber);
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
                             Preferences.Default.Set(ApiConstants.Role, UserResponse.Role);
-                            var vm = new HomeViewModel();
+                            var vm = new HomeViewModel(Rep,_service);
                             var page = new HomePage(Rep,_service);
                             page.BindingContext = vm;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
@@ -91,7 +88,6 @@ namespace EngHotel.ViewModels.Shared
                             App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
                         }
                     }
-
                     UserDialogs.Instance.HideHud();
                     IsBusy = false;
                 }
