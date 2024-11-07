@@ -82,7 +82,7 @@
         <!--Save Buuton-->
         <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,20" VerticalOptions="EndAndExpand">
             <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-                    FontSize="16" FontAttributes="Bold"></Button>
+                    FontSize="16" FontAttributes="Bold" Command="{Binding SignUpClickCommand}" CommandParameter="{Binding}"></Button>
         </Border>
     </StackLayout>
 </ContentPage>

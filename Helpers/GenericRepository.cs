@@ -104,7 +104,12 @@ namespace TripBliss.Helpers
                 {
                     await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 404. System.Net.HttpStatusCode.NotFound indicates\r\nthat the requested resource requires Data.", "OK");
                     return default(T)!;
-                    
+                }
+
+                if (responseMessage.StatusCode == HttpStatusCode.InternalServerError)
+                {
+                    await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 500. System.Net.HttpStatusCode.InternalServerError indicates\r\nthat the server refuses to fulfill the request.", "OK");
+                    return default(T)!;
                 }
 
                 //throw new HttpRequestExceptionEx(responseMessage.StatusCode, jsonResult);   
@@ -206,13 +211,23 @@ namespace TripBliss.Helpers
                     var json = JsonConvert.DeserializeObject<UsersDTO>(jsonResult);
                     return json;
                 }
+                else if (responseMessage.StatusCode == HttpStatusCode.InternalServerError)
+                {
+                    await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 500. System.Net.HttpStatusCode.InternalServerError indicates\r\nthat the server refuses to fulfill the request.", "OK");
+                    return default(UsersDTO)!;
+                }
+                else if (responseMessage.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 403. System.Net.HttpStatusCode.Forbidden indicates\r\nthat the server refuses to fulfill the request.", "OK");
+                    return default(UsersDTO)!;
+                }
                 else
                 {
                     jsonResult = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
                     var json = JsonConvert.DeserializeObject<ErrorsResult>(jsonResult);
                     var toast = Toast.Make(json.message!, CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
                     await toast.Show();
-                    return new UsersDTO();
+                    return default(UsersDTO)!;
                 }
 
             }
@@ -387,13 +402,12 @@ namespace TripBliss.Helpers
                     if (responseMessage.StatusCode == HttpStatusCode.Forbidden)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 403. System.Net.HttpStatusCode.Forbidden indicates\r\nthat the server refuses to fulfill the request.", "OK");
-                        
                     }
 
                     if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 401. System.Net.HttpStatusCode.Unauthorized indicates\r\nthat the requested resource requires authentication.", "OK");
-                        //await StartData.UserLogout();
+                        
                     }
                     var model = JsonConvert.DeserializeObject<TR>("");
                     var json = JsonConvert.DeserializeObject<ErrorsResult>(jsonResult);
