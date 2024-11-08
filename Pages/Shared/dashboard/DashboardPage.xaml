@@ -35,7 +35,7 @@
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <Label Text="Room ID : " FontSize="12" FontAttributes="Bold" TextColor="{StaticResource placeHolderColor}" Margin="10,10,0,10"></Label>
                                 <Label Text="{Binding RoomId}" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" Margin="0,10,10,10"></Label>
-                                <Border StrokeShape="RoundRectangle 0,20,20,0" HorizontalOptions="EndAndExpand" WidthRequest="80" HeightRequest="30" VerticalOptions="StartAndExpand">
+                                <Border StrokeShape="RoundRectangle 0,0,20,0" HorizontalOptions="EndAndExpand" WidthRequest="80" HeightRequest="30" VerticalOptions="StartAndExpand">
                                     <Label Text="{Binding Status}" FontSize="12" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Completed">
@@ -49,6 +49,11 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
+                                    <!--<Border.Triggers>
+                                        <DataTrigger TargetType="Border" Binding="{Binding Lang}" Value="ar">
+                                            <Setter Property="StrokeShape" Value="RoundRectangle 0,0,0,20"></Setter>
+                                        </DataTrigger>
+                                    </Border.Triggers>-->
                                 </Border>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
