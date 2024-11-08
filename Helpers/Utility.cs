@@ -33,7 +33,7 @@ namespace EngHotel.Helpers
 
         public static readonly string PathServerProfileImages = "https://projectservices.engprosoft.com/EmployeePic/";
 
-        public static readonly string ServerUrl = "http://hotelapi.engprosoft.net/";
+        public static readonly string ServerUrl = "https://hotelapi.engprosoft.net/";
         //public static readonly string ServerUrl = "https://dhm.engprosoft.net/";
 
 

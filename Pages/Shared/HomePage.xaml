@@ -26,7 +26,7 @@
                                         <!--Room Service-->
                                         <Border StrokeShape="RoundRectangle 25" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" Padding="5,40" HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -43,7 +43,7 @@
                                         <!--Bathroom Services-->
                                         <Border StrokeShape="RoundRectangle 25" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" Padding="5,40" HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -63,7 +63,7 @@
                                         <!--Housekeeping Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -81,7 +81,7 @@
                                         <!--Laundry Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -101,7 +101,7 @@
                                         <!--Maintenance Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -118,7 +118,7 @@
                                         <!--Luggage Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -138,7 +138,7 @@
                                         <!--Childcare Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -155,7 +155,7 @@
                                         <!--Dining  Services-->
                                         <Border StrokeShape="RoundRectangle 25" Padding="5,40" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
                                             <Border.Shadow>
-                                                <Shadow Offset="5,5" Brush="Black"/>
+                                                <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                             </Border.Shadow>
                                             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                                 <Image>
@@ -173,7 +173,7 @@
                                     <!--Open Bofa-->
                                     <Border StrokeShape="RoundRectangle 25" Padding="5,40" Margin="0,0,10,15" BackgroundColor="{StaticResource ButtonBackgroundColorDark}"  HorizontalOptions="FillAndExpand">
                                         <Border.Shadow>
-                                            <Shadow Offset="5,5" Brush="Black"/>
+                                            <Shadow Offset="5,5" Brush="{OnPlatform Android=Gray,iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"/>
                                         </Border.Shadow>
                                         <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="7" VerticalOptions="CenterAndExpand">
                                             <Image>
