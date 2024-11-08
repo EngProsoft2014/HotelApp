@@ -66,7 +66,6 @@ namespace EngHotel.ViewModels.Shared.Rooms
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-
                 string UserToken = await _service.UserToken();
                 if (string.IsNullOrEmpty(SelectedRoomSize) && string.IsNullOrEmpty(SelectedRoomView) && string.IsNullOrEmpty(SelectedBedType))
                 {

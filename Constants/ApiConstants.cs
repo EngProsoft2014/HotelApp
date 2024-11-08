@@ -49,7 +49,7 @@ namespace EngHotel.Constants
 
         #region Room Filter Api
         // Room Filter Api
-        public static string GetRoomFilterApi = "api/Rooms/GetAllAvailableRooms";
+        public static string GetRoomFilterApi = "api/Rooms/GetAllAvailableRooms";  
         // End Room Filter Api 
         #endregion
 
