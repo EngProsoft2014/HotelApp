@@ -15,6 +15,7 @@ using EngHotel.Helpers;
 using EngHotel.Models.UserModels;
 using EngHotel.Models;
 using CommunityToolkit.Maui.Alerts;
+using System.Text;
 
 
 namespace TripBliss.Helpers
@@ -57,7 +58,6 @@ namespace TripBliss.Helpers
 
         public async Task<T> GetAsync<T>(string uri, string authToken = "")
         {
-
             try
             {
                 HttpClient httpClient = CreateHttpClient(Utility.ServerUrl + uri);
@@ -123,6 +123,7 @@ namespace TripBliss.Helpers
                 throw;
             }
         }
+
 
         public async Task<string> GetStrAsync<T>(string uri, string authToken = "")
         {

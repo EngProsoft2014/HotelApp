@@ -60,7 +60,14 @@ namespace EngHotel.ViewModels.Shared
             page.BindingContext = vm;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
         }
-
+        [RelayCommand]
+        async Task BookingCLick()
+        {
+            var vm = new BookingViewModel(Rep,_service);
+            var page = new BookingPage();
+            page.BindingContext = vm;
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
+        }
         [RelayCommand]
         async Task RoomCLick()
         {

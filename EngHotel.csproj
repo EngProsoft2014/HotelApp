@@ -118,6 +118,9 @@
 	  <Compile Update="Pages\Orders\OrderDetails\RoomServiceDetailsPage.xaml.cs">
 	    <DependentUpon>RoomServiceDetailsPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\Shared\Rooms\RoomFilterPage.xaml.cs">
+	    <DependentUpon>RoomFilterPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -218,6 +221,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Shared\Rooms\ImagesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Shared\Rooms\RoomFilterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Shared\Rooms\RoomsPage.xaml">

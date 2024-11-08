@@ -45,27 +45,12 @@ namespace EngHotel.Constants
         public static string GetAllSevicesApi = "api/Service";
         // End AllSevices Api
 
-        // AllHotels Api
-        public static string GetAllHotelsApi = "api/Hotel/current";
-        // End AllHotels Api
-
-        // AllMeals Api
-        public static string GetAllMealsApi = "api/Meal/current";
-        // End AllMeals Api
-
-        // AllRoomTypes Api
-        public static string GetAllRoomTypesApi = "api/RoomType/current";
-        // End RoomTypes Api
-
-        // AllRoomViews Api
-        public static string GetAllRoomViewsApi = "api/RoomView/current";
-        // End AllRoomViews Api 
         #endregion
 
-        #region Visa Service Api
-        // AllVisa Api
-        public static string GetVisasApi = "api/Visa/current";
-        // End AllVisa Api 
+        #region Room Filter Api
+        // Room Filter Api
+        public static string GetRoomFilterApi = "api/Rooms/GetAllAvailableRooms";
+        // End Room Filter Api 
         #endregion
 
         #region AirFlight Service

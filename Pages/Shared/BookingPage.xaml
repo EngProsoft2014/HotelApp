@@ -95,15 +95,18 @@
                         </Border>
                     </VerticalStackLayout>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Spacing="20">
-                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Room Id" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
-                        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                            <Entry Placeholder="Room Id" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
-                        </Border>
-                    </VerticalStackLayout>
-                    <Line HorizontalOptions="FillAndExpand"></Line>
-                </StackLayout>
+                <!--Room Number-->
+                <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Room Number" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
+                    <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
+                        <Entry Placeholder="Room Number" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}" IsReadOnly="True">
+                            <Entry.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RoomNumClickCommand}"></TapGestureRecognizer>
+                            </Entry.GestureRecognizers>
+                        </Entry>
+                    </Border>
+                </VerticalStackLayout>
+                <!--Special Requests-->
                 <VerticalStackLayout>
                     <Label Text="Special Requests" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HeightRequest="100">

@@ -342,6 +342,18 @@
                                             <TapGestureRecognizer Command="{Binding DashBoardCLickCommand}"></TapGestureRecognizer>
                                         </HorizontalStackLayout.GestureRecognizers>
                                     </HorizontalStackLayout>
+                                    <!--Bookin-->
+                                    <HorizontalStackLayout Spacing="7" HeightRequest="25">
+                                        <Image VerticalOptions="CenterAndExpand">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}" Size="20"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="Booking" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalOptions="EndAndExpand" ></Label>
+                                        <HorizontalStackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding BookingCLickCommand}"></TapGestureRecognizer>
+                                        </HorizontalStackLayout.GestureRecognizers>
+                                    </HorizontalStackLayout>
                                     <!--Rooms-->
                                     <HorizontalStackLayout Spacing="7" HeightRequest="25">
                                         <Image VerticalOptions="CenterAndExpand">

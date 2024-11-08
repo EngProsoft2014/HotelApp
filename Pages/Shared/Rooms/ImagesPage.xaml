@@ -2,6 +2,7 @@
 <Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
+             xmlns:vm="clr-namespace:EngHotel.ViewModels.Shared.Rooms"
              x:Class="EngHotel.Pages.Shared.Rooms.ImagesPage"
              Title="ImagesPage"
              NavigationPage.HasNavigationBar="False"
@@ -40,15 +41,34 @@
                                     </Image.Source>
                                 </Image>
                             </VerticalStackLayout>
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding Source={RelativeSource AncestorType={x:Type vm:ImagesViewModel}}, Path=IsBooking}" Value="true">
+                                    <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                                    <Setter Property="Padding" Value="90,80"></Setter>
+                                </DataTrigger>
+                            </Border.Triggers>
                         </Border>
                         <!--Set as Default-->
                         <Label Text="Set as Default" TextColor="{StaticResource placeHolderColor}" FontSize="14" VerticalTextAlignment="Center" 
-                               HorizontalOptions="CenterAndExpand"></Label>
+                               HorizontalOptions="CenterAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={RelativeSource AncestorType={x:Type vm:ImagesViewModel}}, Path=IsBooking}
+                                    " Value="true">
+                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
                         <!--Remove-->
                         <Image Margin="0,0,20,0" VerticalOptions="CenterAndExpand">
                             <Image.Source>
                                 <FontImageSource Glyph="" FontFamily="FontIcon" Size="16" Color="{StaticResource IconColorDark}"></FontImageSource>
                             </Image.Source>
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type vm:ImagesViewModel}}, Path=IsBooking}"
+                                             Value="true">
+                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                </DataTrigger>
+                            </Image.Triggers>
                         </Image>
                     </StackLayout>
                 </DataTemplate>
@@ -57,7 +77,13 @@
         <!--Save-->
         <Border StrokeShape="RoundRectangle 0,20,20,0" VerticalOptions="End" Margin="0,0,0,10">
             <Button Text="Save" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-            FontSize="16" FontAttributes="Bold"></Button>
+            FontSize="16" FontAttributes="Bold">
+            </Button>
+            <Border.Triggers>
+                <DataTrigger TargetType="Border" Binding="{Binding IsBooking}" Value="true">
+                    <Setter Property="IsVisible" Value="False"></Setter>
+                </DataTrigger>
+            </Border.Triggers>
         </Border>
     </StackLayout>
 </Controls:CustomControl>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:EngHotel.Controls"
+             x:Class="EngHotel.Pages.Shared.Rooms.RoomFilterPage"
+             Title="RoomFilter"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <StackLayout Margin="20" Spacing="10">
+        <!--Header-->
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image" Binding="{Binding Lang}" Value="ar">
+                        <Setter Property="Rotation" Value="180"></Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCLickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Room Filter" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="{StaticResource CompletedColor}" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ImageDoneClickCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <!--Filter Menu-->
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <!--Bed Type-->
+            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                <Picker Title="Bed Type" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                        ItemsSource="{Binding BedType}" SelectedItem="{Binding SelectedBedType}"></Picker>
+            </Border>
+            <!--Room Size-->
+            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                <Picker Title="Room Size" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                        ItemsSource="{Binding RoomSize}" SelectedItem="{Binding SelectedRoomSize}"></Picker>
+            </Border>
+            <!--Room View-->
+            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                <Picker Title="Room View" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                        ItemsSource="{Binding RoomView}" SelectedItem="{Binding SelectedRoomView}"></Picker>
+            </Border>
+        </StackLayout>
+        <!--Room Type--><!--
+        <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+            <Picker Title="Room Type" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                    ItemsSource="{Binding RoomType}" SelectedItem="{Binding SelectedRoomType}"></Picker>
+        </Border>-->
+        <!--ChecBoxs-->
+        <StackLayout Orientation="Horizontal">
+            <HorizontalStackLayout>
+                <CheckBox Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                <Label Text="Has Balcony" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalTextAlignment="Center"></Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                <CheckBox Color="{StaticResource ButtonBackgroundColorDark}"></CheckBox>
+                <Label Text="Has Kitchenette" FontSize="14" TextColor="{StaticResource TextColorDark}" VerticalTextAlignment="Center"></Label>
+            </HorizontalStackLayout>
+        </StackLayout>
+        <!--Rooms Data-->
+        <CollectionView ItemsSource="{Binding Rooms}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <!--Room Image-->
+                        <Border StrokeShape="RoundRectangle 15" StrokeDashArray="10,10" Padding="45,25">
+                            <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource Glyph="" Size="25" FontFamily="FontIconSolid" Color="{StaticResource IconColorDark}"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                            </VerticalStackLayout>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageClickCommand}"></TapGestureRecognizer>
+                            </Border.GestureRecognizers>
+                        </Border>
+                        <!--data-->
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <!--Room Number && Max Occupancy-->
+                            <StackLayout Orientation="Horizontal">
+                                <!--Room Number-->
+                                <HorizontalStackLayout>
+                                    <Label Text="Room Number : " TextColor="{StaticResource placeHolderColor}" FontSize="12"></Label>
+                                    <Label Text="{Binding RoomNumber}" TextColor="{StaticResource TextColorDark}" FontSize="12"></Label>
+                                </HorizontalStackLayout>
+                                <!--Max Occupancy-->
+                                <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                                    <Label Text="Max Occupancy : " TextColor="{StaticResource placeHolderColor}" FontSize="12"></Label>
+                                    <Label Text="{Binding MaxOccupancy}" TextColor="{StaticResource TextColorDark}" FontSize="12"></Label>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                            <!--Room Number-->
+                            <HorizontalStackLayout>
+                                <Label Text="Room Accessibility : " TextColor="{StaticResource placeHolderColor}" FontSize="12"></Label>
+                                <Label Text="{Binding RoomAccessibility}" TextColor="{StaticResource TextColorDark}" FontSize="12"></Label>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"></GridItemsLayout>
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

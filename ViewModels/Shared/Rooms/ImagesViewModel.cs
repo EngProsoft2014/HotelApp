@@ -13,9 +13,16 @@ namespace EngHotel.ViewModels.Shared.Rooms
     {
         [ObservableProperty]
         ObservableCollection<string> lstSt = new ObservableCollection<string>();
+        [ObservableProperty]
+        bool isBooking = false;
 
         public ImagesViewModel()
         {
+            LoadData();
+        }
+        public ImagesViewModel(bool isbook)
+        {
+            IsBooking = isbook;
             LoadData();
         }
 
