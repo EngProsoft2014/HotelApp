@@ -30,7 +30,9 @@ namespace EngHotel.ViewModels.Shared.Rooms
         [ObservableProperty]
         string selectedRoomView = "";
         [ObservableProperty]
-        string selectedRoomSize = ""; 
+        string selectedRoomSize = "";
+        public delegate void RoomDelegte(RoomModel model);
+        public event RoomDelegte RoomFilterClose;
         #endregion
 
         #region Service
@@ -39,10 +41,12 @@ namespace EngHotel.ViewModels.Shared.Rooms
         #endregion
 
         #region Cons
-        public RoomFilterViewModel(IGenericRepository GenericRep, Services.Data.ServicesService service)
+        public RoomFilterViewModel(IGenericRepository GenericRep, Services.Data.ServicesService service,DateTime ChecIn, DateTime ChecOut)
         {
             _service = service;
             Rep = GenericRep;
+            //RoomFilterModel.desiredCheckInDate = ChecIn;
+            //RoomFilterModel.desiredCheckOutDate = ChecOut;
             LoadData();
         } 
         #endregion
@@ -75,8 +79,8 @@ namespace EngHotel.ViewModels.Shared.Rooms
                 else
                 {
                     RoomFilterModel.RoomSize = SelectedRoomSize;
-                    RoomFilterModel.RoomView = SelectedRoomView;
-                    RoomFilterModel.BedType = SelectedBedType;
+                    //RoomFilterModel.RoomView = SelectedRoomView;
+                    //RoomFilterModel.BedType = SelectedBedType;
                     if (!string.IsNullOrEmpty(UserToken))
                     {
                         UserDialogs.Instance.ShowLoading();
@@ -89,6 +93,12 @@ namespace EngHotel.ViewModels.Shared.Rooms
                     }
                 }
             }
+        }
+        [RelayCommand]
+        async Task SelectRoomClick(RoomModel room)
+        {
+            RoomFilterClose.Invoke(room);
+            await App.Current!.MainPage!.Navigation.PopAsync();
         }
         #endregion
 

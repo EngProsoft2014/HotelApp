@@ -7,6 +7,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
     <StackLayout Orientation="Vertical" Margin="20" Spacing="15">
+        <!--Header-->
         <StackLayout Orientation="Horizontal" Margin="0,0,0,30">
             <Image>
                 <Image.Source>
@@ -23,75 +24,95 @@
             </Image>
             <Label Text="Booking" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColorDark}" HorizontalOptions="CenterAndExpand"></Label>
         </StackLayout>
+        <!--Data-->
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" Spacing="10">
+                <!--Guest Name-->
                 <VerticalStackLayout>
                     <Label Text="Guest Name" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Guest Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Guest Name" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding Booking.GuestName}"></Entry>
                     </Border>
                 </VerticalStackLayout>
+                <!--Guest Contact-->
                 <VerticalStackLayout>
                     <Label Text="Guest Contact" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Guest Contact" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                        <Entry Placeholder="Guest Contact" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                               Text="{Binding Booking.GuestContact}"></Entry>
                     </Border>
                 </VerticalStackLayout>
+                <!--Booking Date & Number of Guests-->
                 <StackLayout Orientation="Horizontal" Spacing="20">
+                    <!--Booking Date-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Booking Date" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" >
-                            <DatePicker TextColor="{StaticResource TextColorDark}"></DatePicker>
+                            <DatePicker TextColor="{StaticResource TextColorDark}" Date="{Binding Booking.BookingDate}"></DatePicker>
                         </Border>
                     </VerticalStackLayout>
+                    <!--Number of Guests-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Number of Guests" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" >
                             <Entry Placeholder="Number of Guests" PlaceholderColor="{StaticResource placeHolderColor}"
-                                   Keyboard="Numeric" TextColor="{StaticResource TextColorDark}"></Entry>
+                                   Keyboard="Numeric" TextColor="{StaticResource TextColorDark}" Text="{Binding Booking.NumberofGuests}"></Entry>
                         </Border>
                     </VerticalStackLayout>
                 </StackLayout>
+                <!--Check In Date & Check Out Date-->
                 <StackLayout Orientation="Horizontal" Spacing="20">
+                    <!--Check In Date-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Check In" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" >
-                            <DatePicker TextColor="{StaticResource TextColorDark}"></DatePicker>
+                            <DatePicker TextColor="{StaticResource TextColorDark}" Date="{Binding Booking.CheckInDate}"></DatePicker>
                         </Border>
                     </VerticalStackLayout>
+                    <!--Check Out Date-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Check Out" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" >
-                            <DatePicker TextColor="{StaticResource TextColorDark}"></DatePicker>
+                            <DatePicker TextColor="{StaticResource TextColorDark}" Date="{Binding Booking.CheckOutDate}"></DatePicker>
                         </Border>
                     </VerticalStackLayout>
                 </StackLayout>
+                <!--Total Nights & Rate Per Night-->
                 <StackLayout Orientation="Horizontal" Spacing="20">
+                    <!--Total Nights-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Total Nights" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                             <Entry Placeholder="Total Nights" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
-                                   Keyboard="Numeric"></Entry>
+                                   Keyboard="Numeric" Text="{Binding Booking.TotalNights}"></Entry>
                         </Border>
                     </VerticalStackLayout>
+                    <!--Rate Per Night-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Rate Per Night" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                            <Entry Placeholder="Rate Per Night" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                            <Entry Placeholder="Rate Per Night" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                                   Text="{Binding Booking.RatePerNight}"></Entry>
                         </Border>
                     </VerticalStackLayout>
                 </StackLayout>
+                <!--Payment Method & Total Cost-->
                 <StackLayout Orientation="Horizontal" Spacing="20">
+                    <!--Payment Method-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Payment Method" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                            <Entry Placeholder="Payment Method" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                            <Entry Placeholder="Payment Method" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                                   Text="{Binding Booking.PaymentMethod}"></Entry>
                         </Border>
                     </VerticalStackLayout>
+                    <!--Total Cost-->
                     <VerticalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Total Cost" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                            <Entry Placeholder="Total Cost" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"></Entry>
+                            <Entry Placeholder="Total Cost" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
+                                   Text="{Binding Booking.TotalCost}"></Entry>
                         </Border>
                     </VerticalStackLayout>
                 </StackLayout>
@@ -99,7 +120,8 @@
                 <VerticalStackLayout HorizontalOptions="FillAndExpand">
                     <Label Text="Room Number" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
-                        <Entry Placeholder="Room Number" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}" IsReadOnly="True">
+                        <Entry Placeholder="Room Number" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}" IsReadOnly="True"
+                               Text="{Binding Booking.RoomId}">
                             <Entry.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding RoomNumClickCommand}"></TapGestureRecognizer>
                             </Entry.GestureRecognizers>
@@ -111,14 +133,15 @@
                     <Label Text="Special Requests" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                     <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HeightRequest="100">
                         <Entry Placeholder="Special Requests" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
-                               HeightRequest="100" VerticalTextAlignment="Start"></Entry>
+                               HeightRequest="100" VerticalTextAlignment="Start" Text="{Binding Booking.SpecialRequests}"></Entry>
                     </Border>
                 </VerticalStackLayout>
             </StackLayout>
         </ScrollView>
+        <!--Book Now-->
         <Border StrokeShape="RoundRectangle 0,20,20,0" Margin="0,20,0,20">
             <Button Text="Book Now" BackgroundColor="{StaticResource ButtonBackgroundColorDark}" CornerRadius="0" TextColor="{StaticResource TextColorLighet}"
-            FontSize="16" FontAttributes="Bold"></Button>
+                    FontSize="16" FontAttributes="Bold" Command="{Binding BookingClickCommand}" CommandParameter="{Binding Booking}"></Button>
         </Border>
     </StackLayout>
 </ContentPage>

@@ -12,9 +12,9 @@ namespace EngHotel.Models.BookingModels
         public string? Reference_Number { get; set; }
         public int Account_ID { get; set; }
         public int RoomId { get; set; }
-        public DateTime BookingDate { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
+        public DateTime BookingDate { get; set; } = DateTime.Now.AddDays(1);
+        public DateTime CheckInDate { get; set; } = DateTime.Now.AddDays(1);
+        public DateTime CheckOutDate { get; set; } = DateTime.Now.AddDays(2);
         public string? BookingStatus { get; set; }
         public string? GuestName { get; set; }
         public string? GuestContact { get; set; }

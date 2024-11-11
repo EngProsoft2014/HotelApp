@@ -8,7 +8,7 @@ namespace EngHotel.Models.RoomModels
 {
     public class RoomModel
     {
-        public int Room_ID { get; set; }
+        public int ID { get; set; }
         public string? RoomNumber { get; set; }
         public string? RoomType { get; set; }
         public string? RoomSize { get; set; }
