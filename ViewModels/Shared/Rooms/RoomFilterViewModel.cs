@@ -31,6 +31,8 @@ namespace EngHotel.ViewModels.Shared.Rooms
         string selectedRoomView = "";
         [ObservableProperty]
         string selectedRoomSize = "";
+        [ObservableProperty]
+        string selectedRoomType = "";
         public delegate void RoomDelegte(RoomModel model);
         public event RoomDelegte RoomFilterClose;
         #endregion
@@ -45,8 +47,8 @@ namespace EngHotel.ViewModels.Shared.Rooms
         {
             _service = service;
             Rep = GenericRep;
-            //RoomFilterModel.desiredCheckInDate = ChecIn;
-            //RoomFilterModel.desiredCheckOutDate = ChecOut;
+            RoomFilterModel.desiredCheckInDate = ChecIn;
+            RoomFilterModel.desiredCheckOutDate = ChecOut;
             LoadData();
         } 
         #endregion
@@ -70,6 +72,8 @@ namespace EngHotel.ViewModels.Shared.Rooms
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                IsBusy = false;
+
                 string UserToken = await _service.UserToken();
                 if (string.IsNullOrEmpty(SelectedRoomSize) && string.IsNullOrEmpty(SelectedRoomView) && string.IsNullOrEmpty(SelectedBedType))
                 {
@@ -79,8 +83,9 @@ namespace EngHotel.ViewModels.Shared.Rooms
                 else
                 {
                     RoomFilterModel.RoomSize = SelectedRoomSize;
-                    //RoomFilterModel.RoomView = SelectedRoomView;
-                    //RoomFilterModel.BedType = SelectedBedType;
+                    RoomFilterModel.RoomView = SelectedRoomView;
+                    RoomFilterModel.BedType = SelectedBedType;
+
                     if (!string.IsNullOrEmpty(UserToken))
                     {
                         UserDialogs.Instance.ShowLoading();
@@ -92,6 +97,8 @@ namespace EngHotel.ViewModels.Shared.Rooms
                         }
                     }
                 }
+
+                IsBusy = true;
             }
         }
         [RelayCommand]
@@ -99,6 +106,14 @@ namespace EngHotel.ViewModels.Shared.Rooms
         {
             RoomFilterClose.Invoke(room);
             await App.Current!.MainPage!.Navigation.PopAsync();
+        }
+        [RelayCommand]
+        void RestfilreClick()
+        {
+            SelectedBedType = "";
+            SelectedRoomSize = "";
+            SelectedRoomView = "";
+            SelectedRoomType = "";
         }
         #endregion
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
              x:Class="EngHotel.Pages.Shared.BookingPage"
+             IsEnabled="{Binding IsBusy}"
              Title="BookingPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
@@ -85,7 +86,7 @@
                         <Label Text="Total Nights" FontSize="12" TextColor="{StaticResource placeHolderColor}"></Label>
                         <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0">
                             <Entry Placeholder="Total Nights" PlaceholderColor="{StaticResource placeHolderColor}" TextColor="{StaticResource TextColorDark}"
-                                   Keyboard="Numeric" Text="{Binding Booking.TotalNights}"></Entry>
+                                   Keyboard="Numeric" Text="{Binding Booking.TotalNights}" IsReadOnly="True"></Entry>
                         </Border>
                     </VerticalStackLayout>
                     <!--Rate Per Night-->
@@ -144,4 +145,4 @@
                     FontSize="16" FontAttributes="Bold" Command="{Binding BookingClickCommand}" CommandParameter="{Binding Booking}"></Button>
         </Border>
     </StackLayout>
-</ContentPage>
+</Controls:CustomControl>

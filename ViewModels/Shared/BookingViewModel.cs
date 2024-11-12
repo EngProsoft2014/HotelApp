@@ -55,6 +55,8 @@ namespace EngHotel.ViewModels.Shared
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                IsBusy = false;
+
                 string UserToken = await _service.UserToken();
                 if (string.IsNullOrEmpty(model.GuestName))
                 {
@@ -120,10 +122,13 @@ namespace EngHotel.ViewModels.Shared
                         UserDialogs.Instance.HideHud();
                         if (json.Item1 != null)
                         {
-                            
+                            var toast = Toast.Make("Booking Done Successfully", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
+                            await toast.Show();
                         }
                     }
                 }
+
+                IsBusy = true;
             }
         }
     }

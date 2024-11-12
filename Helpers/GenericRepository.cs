@@ -16,6 +16,7 @@ using EngHotel.Models.UserModels;
 using EngHotel.Models;
 using CommunityToolkit.Maui.Alerts;
 using System.Text;
+using EngHotel.Models.BookingModels;
 
 
 namespace TripBliss.Helpers
@@ -394,9 +395,10 @@ namespace TripBliss.Helpers
 
                 jsonResult = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
                 if (responseMessage.IsSuccessStatusCode)
-                { 
+                {
                     var json = JsonConvert.DeserializeObject<TR>(jsonResult);
                     return (json!, null);
+                    
                 }
                 else
                 {
@@ -409,6 +411,10 @@ namespace TripBliss.Helpers
                     {
                         await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 401. System.Net.HttpStatusCode.Unauthorized indicates\r\nthat the requested resource requires authentication.", "OK");
                         
+                    }
+                    if(responseMessage.StatusCode == HttpStatusCode.InternalServerError)
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Warning", "Equivalent to HTTP status 500. System.Net.HttpStatusCode.InternalServerError Please Try again", "OK");
                     }
                     var model = JsonConvert.DeserializeObject<TR>("");
                     var json = JsonConvert.DeserializeObject<ErrorsResult>(jsonResult);

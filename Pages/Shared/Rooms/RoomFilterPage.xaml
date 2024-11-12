@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<Controls:CustomControl xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:EngHotel.Controls"
              xmlns:vm="clr-namespace:EngHotel.ViewModels.Shared.Rooms"
              x:Class="EngHotel.Pages.Shared.Rooms.RoomFilterPage"
+             IsEnabled="{Binding IsBusy}"
              Title="RoomFilter"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource PageBackgroundColor}">
@@ -34,23 +35,42 @@
             </Image>
         </StackLayout>
         <!--Filter Menu-->
-        <StackLayout Orientation="Horizontal" Spacing="10">
-            <!--Bed Type-->
-            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
-                <Picker Title="Bed Type" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
-                        ItemsSource="{Binding BedType}" SelectedItem="{Binding SelectedBedType}"></Picker>
-            </Border>
-            <!--Room Size-->
-            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
-                <Picker Title="Room Size" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
-                        ItemsSource="{Binding RoomSize}" SelectedItem="{Binding SelectedRoomSize}"></Picker>
-            </Border>
-            <!--Room View-->
-            <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
-                <Picker Title="Room View" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
-                        ItemsSource="{Binding RoomView}" SelectedItem="{Binding SelectedRoomView}"></Picker>
-            </Border>
-        </StackLayout>
+        <VerticalStackLayout Spacing="10">
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <!--Bed Type-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Picker Title="Bed Type" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                ItemsSource="{Binding BedType}" SelectedItem="{Binding SelectedBedType}"></Picker>
+                </Border>
+                <!--Room Size-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Picker Title="Room Size" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                ItemsSource="{Binding RoomSize}" SelectedItem="{Binding SelectedRoomSize}"></Picker>
+                </Border>
+                <!--Room View-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Picker Title="Room View" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                ItemsSource="{Binding RoomView}" SelectedItem="{Binding SelectedRoomView}"></Picker>
+                </Border>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <!--Room Type-->
+                <Border StrokeShape="RoundRectangle 20,0,0,20" Padding="5,0,0,0" HorizontalOptions="FillAndExpand">
+                    <Picker Title="Room Type" TextColor="{StaticResource TextColorDark}" TitleColor="{StaticResource placeHolderColor}"
+                            ItemsSource="{Binding RoomType}" SelectedItem="{Binding SelectedRoomType}"></Picker>
+                </Border>
+                <!--Reset Image-->
+                <Image HorizontalOptions="End" HeightRequest="30" Margin="0,0,10,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="12"></FontImageSource>
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RestfilreClickCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </VerticalStackLayout>
+        
         <!--ChecBoxs-->
         <StackLayout Orientation="Horizontal">
             <HorizontalStackLayout>
@@ -113,4 +133,4 @@
             </CollectionView.ItemsLayout>
         </CollectionView>
     </StackLayout>
-</ContentPage>
+</Controls:CustomControl>
